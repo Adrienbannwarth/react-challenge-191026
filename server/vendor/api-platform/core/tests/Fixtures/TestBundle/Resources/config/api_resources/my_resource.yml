@@ -1,9 +1,0 @@
-resources:
-    ApiPlatform\Core\Tests\Fixtures\TestBundle\Model\ResourceBarInterface:
-        itemOperations:
-            get:
-                method: 'GET'
-
-        collectionOperations:
-            get:
-                method: 'GET'
