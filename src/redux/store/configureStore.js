@@ -1,16 +1,14 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import { routerMiddleware } from 'react-router-redux';
 import axiosMiddleware from 'redux-axios-middleware';
 import rootReducer from '../reducers';
-import { client, options } from '../helpers/api';
+import { client, options } from '../../helpers/api';
 
 // eslint-disable-next-line
 const enhancers = [];
 const middleware = [
   thunk,
   axiosMiddleware(client, options),
-  routerMiddleware(history),
 ];
 
 const createStoreWithMiddleware = compose(applyMiddleware(...middleware)(createStore));
@@ -18,7 +16,7 @@ const createStoreWithMiddleware = compose(applyMiddleware(...middleware)(createS
 export function configure(initialState) {
   const configStore = createStoreWithMiddleware(
     rootReducer,
-    Object.assign({}, initialState, intlTranslations),
+    Object.assign({}, initialState),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   );
 
