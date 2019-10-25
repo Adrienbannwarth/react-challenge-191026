@@ -1,13 +1,37 @@
-# Techno utilisée 
+# Techno utilisée 🛠 
 - React
 - Symfony
 
-# dashboard-hetic
+# dashboard-hetic 
 
 Adresse IP utilisée : `51.15.192.124`
 
-# Fonctionalités :
+## Cahier des charges 📖: 
+- Une Api
+    - Une route -> Liste
+                        - par année / promotion
+- Par iD
+- Hébergée sur le VPS
+- Accessible via une url 
+- Renvoie :
+    -> un user (ID)
+    -> Tous les users 
+- Une App react 
+    -> ui simple
+    -> tri par promotion
+    
+## Features ⚠️
+- Afficher user 
+- 2 types user 
+    -> Etudiant (restreint) (read)
+    -> Intervenant (Libre) (Read/ update)
+- crud user
 
+  
+
+
+
+# Fonctionalités ⚙️ :
 
 - Login (Intervenant)
     - Mail/identifiant
