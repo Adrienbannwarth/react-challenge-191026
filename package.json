@@ -13,7 +13,8 @@
     "react-scripts": "0.9.x",
     "redux": "^4.0.4",
     "redux-axios-middleware": "^4.0.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^4.4.0"
   },
   "devDependencies": {},
   "scripts": {
