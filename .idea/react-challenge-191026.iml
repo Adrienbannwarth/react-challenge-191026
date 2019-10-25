@@ -14,10 +14,12 @@
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/doctrine/dbal" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/doctrine/doctrine-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/doctrine/doctrine-cache-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/server/vendor/doctrine/doctrine-migrations-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/doctrine/event-manager" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/doctrine/inflector" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/doctrine/instantiator" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/doctrine/lexer" />
+      <excludeFolder url="file://$MODULE_DIR$/server/vendor/doctrine/migrations" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/doctrine/orm" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/doctrine/persistence" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/doctrine/reflection" />
@@ -25,6 +27,8 @@
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/jdorn/sql-formatter" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/nelmio/cors-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/nikic/php-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/server/vendor/ocramius/package-versions" />
+      <excludeFolder url="file://$MODULE_DIR$/server/vendor/ocramius/proxy-manager" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/phpdocumentor/reflection-common" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/phpdocumentor/reflection-docblock" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/phpdocumentor/type-resolver" />
@@ -53,6 +57,7 @@
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/symfony/inflector" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/symfony/maker-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/symfony/mime" />
+      <excludeFolder url="file://$MODULE_DIR$/server/vendor/symfony/orm-pack" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/symfony/polyfill-intl-idn" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/symfony/polyfill-mbstring" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/symfony/polyfill-php72" />
@@ -68,6 +73,7 @@
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/symfony/security-http" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/symfony/serializer" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/symfony/service-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/server/vendor/symfony/stopwatch" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/symfony/translation-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/symfony/twig-bridge" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/symfony/twig-bundle" />
@@ -79,6 +85,8 @@
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/twig/twig" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/webmozart/assert" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/willdurand/negotiation" />
+      <excludeFolder url="file://$MODULE_DIR$/server/vendor/zendframework/zend-code" />
+      <excludeFolder url="file://$MODULE_DIR$/server/vendor/zendframework/zend-eventmanager" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

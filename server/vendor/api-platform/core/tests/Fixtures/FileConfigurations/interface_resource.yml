@@ -1,8 +1,0 @@
-resources:
-    'ApiPlatform\Core\Tests\Fixtures\DummyResourceInterface':
-        properties:
-            something:
-                identifier: true
-            somethingElse:
-                writable: false
-                readable: true
