@@ -1,12 +1,37 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-      </div>
-    );
+// Pages
+import Button from '../Shared/Button';
+import Chart from '../Shared/Chart';
+
+const history = createBrowserHistory()
+
+const App = ({ isLoggedIn }) => {
+  useEffect(() => {
+    if (!isLoggedIn) { history.push('/login') }
+  });
+
+  return (
+    <div className="App">
+      <Router>
+        <main>
+          <Switch>
+            <Route exact path="/" component={Button} />
+            <Route path="/login" component={Chart} />
+          </Switch>
+        </main>
+      </Router>
+    </div>
+  );
+}
+
+const mapStateToProps = (state) => {
+  return {
+    isLoggedIn: state.user.isLoggedIn,
   }
 }
 
-export default App;
+export default connect(mapStateToProps, null)(App);
