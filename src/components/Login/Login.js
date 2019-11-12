@@ -4,7 +4,7 @@ import { Formik } from 'formik';
 
 import { signIn } from '../../redux/actions/user';
 
-import './Login.css'
+import LoginStyle from './LoginStyle'
 import logoHetic from '../../assets/imgs/logo-hetic.jpg'
 
 const Login = ({ signIn }) => {
@@ -29,7 +29,7 @@ const Login = ({ signIn }) => {
         handleSubmit,
         isSubmitting,
       }) => (
-        <div className="PageLogin">
+        <LoginStyle className="PageLogin">
           <div className="form-container">
             <img className="logo-hetic" src= {logoHetic} alt=""/>
             <form onSubmit={handleSubmit}>
@@ -64,7 +64,7 @@ const Login = ({ signIn }) => {
               <button className="login-submit" type="submit" disabled={isSubmitting}>CONNEXION</button>
             </form>
           </div>
-        </div>
+        </LoginStyle>
       )}
     </Formik>
   );
