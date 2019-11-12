@@ -12,6 +12,7 @@ export const GradeInput = props => {
                 {
                     grades.map(grade => {
                     return <button
+                        name={props.label}
                         key={grade}
                         data-grade={grade}
                         onClick={props.handleClick}
