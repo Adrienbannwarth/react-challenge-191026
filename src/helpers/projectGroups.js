@@ -1,4 +1,4 @@
-const projectGroups = [
+export const projectGroups = [
     {
         projectID: 0,
         projectName: "Projet 1",
@@ -336,4 +336,102 @@ const projectGroups = [
     },
 ]
 
-export default projectGroups;
+// export const projectGroups = [];
+
+export const studentProjects = [
+    {
+        projectName: "Wesh",
+        members: [
+            {
+                firstName: "Alexandre",
+                lastname: "Chicha",
+                promo: "H2036",
+                education: "Web",
+                group: "G1-B",
+                job: "Design"
+            },
+            {
+                firstName: "Alexandre",
+                lastname: "Chicha",
+                promo: "H2036",
+                education: "Web",
+                group: "G1-B",
+                job: "Design"
+            },
+            {
+                firstName: "Alexandre",
+                lastname: "Chicha",
+                promo: "H2036",
+                education: "Web",
+                group: "G1-B",
+                job: "Design"
+            }
+        ]
+    },
+    {
+        projectName: "Hello world",
+        members: [
+            {
+                firstName: "Alexandre",
+                lastname: "Chicha",
+                promo: "H2036",
+                education: "Web",
+                group: "G1-B",
+                job: "Design"
+            },
+            {
+                firstName: "Alexandre",
+                lastname: "Chicha",
+                promo: "H2036",
+                education: "Web",
+                group: "G1-B",
+                job: "Design"
+            },
+            {
+                firstName: "Alexandre",
+                lastname: "Chicha",
+                promo: "H2036",
+                education: "Web",
+                group: "G1-B",
+                job: "Design"
+            },
+            {
+                firstName: "Alexandre",
+                lastname: "Chicha",
+                promo: "H2036",
+                education: "Web",
+                group: "G1-B",
+                job: "Design"
+            },
+            {
+                firstName: "Alexandre",
+                lastname: "Chicha",
+                promo: "H2036",
+                education: "Web",
+                group: "G1-B",
+                job: "Design"
+            }
+        ]
+    },
+    {
+        projectName: "Nope",
+        members: [
+            {
+                firstName: "Alexandre",
+                lastname: "Chicha",
+                promo: "H2036",
+                education: "Web",
+                group: "G1-B",
+                job: "Design"
+            },
+            {
+                firstName: "Alexandre",
+                lastname: "Chicha",
+                promo: "H2036",
+                education: "Web",
+                group: "G1-B",
+                job: "Design"
+            }
+        ]
+    },
+];
