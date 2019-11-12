@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
 // Pages
-import Login from '../Login';
+import Login from '../Login/Login';
 import Button from '../Shared/Button';
 import Chart from '../Shared/Chart';
 
