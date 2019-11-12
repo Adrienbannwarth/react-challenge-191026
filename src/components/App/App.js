@@ -5,7 +5,7 @@ import { createBrowserHistory } from 'history';
 import Sidebar from '../Shared/Sidebar/Sidebar.js';
 
 // Pages
-import Login from '../Login';
+import Login from '../Login/Login';
 import Button from '../Shared/Button';
 import Chart from '../Shared/Chart';
 
