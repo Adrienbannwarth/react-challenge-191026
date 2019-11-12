@@ -32,7 +32,7 @@ position: relative;
   &::after {
     content: '';
     position: absolute;
-    left: -2rem;
+    left: -3rem;
     top: 50%;
     transform: translateY(-50%);
     height: 1.5rem;
