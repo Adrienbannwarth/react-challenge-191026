@@ -18,7 +18,13 @@ const App = ({ isLoggedIn }) => {
   return (
     <div className="App">
       <Router>
-        <Sidebar></Sidebar>
+        {window.innerWidth <= 576 &&
+          <h2>IL FAUT DEVELOPPER LA NAV MOBILE</h2> 
+        }
+        
+        {window.innerWidth > 576 &&
+          <Sidebar></Sidebar>
+        }
         <main>
           <Switch>
             <Route exact path="/" component={Button} />
