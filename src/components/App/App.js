@@ -8,6 +8,7 @@ import Sidebar from '../Shared/Sidebar/Sidebar.js';
 import Login from '../Login/Login';
 import Button from '../Shared/Button';
 import Chart from '../Shared/Chart';
+import Group from '../../pages/Group';
 
 
 const history = createBrowserHistory()
@@ -23,6 +24,7 @@ const App = ({ isLoggedIn }) => {
             <Route exact path="/" component={Button} />
             <Route path="/login" component={Login} />
             <Route path="/chart" component={Chart} />
+            <Route path="/group" component={Group} />
           </Switch>
         </main>
       </Router>

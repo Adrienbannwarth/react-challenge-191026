@@ -5,13 +5,13 @@ import { Container, TextContainer, TextLight, StyledJob } from './StyledStudent'
 
 // FAKE DATA
 // const students = [
-//   { lastName: 'ZACHELIN',  firstName: 'Keny', education: 'Web', promo: 'P2020', groupe: 'G1-B', job: 'Dev-back' },
-//   { lastName: 'RAVIRAJA',  firstName: 'Ramiya', education: 'Web', promo: 'P2020', groupe: 'G1-A', job: 'Design' },
-//   { lastName: 'BANNWARTH',  firstName: 'Adrien', education: 'Web', promo: 'P2020', groupe: 'G1-B', job: 'Dev-Front' },
+//   { lastName: 'ZACHELIN',  firstName: 'Keny', education: 'Web', promo: 'P2020', group: 'G1-B', job: 'Dev-back' },
+//   { lastName: 'RAVIRAJA',  firstName: 'Ramiya', education: 'Web', promo: 'P2020', group: 'G1-A', job: 'Design' },
+//   { lastName: 'BANNWARTH',  firstName: 'Adrien', education: 'Web', promo: 'P2020', group: 'G1-B', job: 'Dev-Front' },
 // ]
 
 const Students = ({ Student }) => (
-  <Container groupe={Student.groupe}>
+  <Container group={Student.group}>
     <TextContainer>
       <p><strong>{Student.lastName}</strong></p>
       &nbsp;
@@ -23,7 +23,7 @@ const Students = ({ Student }) => (
     <p>{Student.promo}</p>
     &nbsp;
     &nbsp;
-    <TextLight>{Student.groupe}</TextLight>
+    <TextLight>{Student.group}</TextLight>
     </TextContainer>
     <TextContainer>
       <StyledJob job={Student.job}>
