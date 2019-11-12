@@ -4,6 +4,7 @@ import { Formik } from 'formik';
 
 import { updateProfile } from '../../../redux/actions/profile';
 import StyledInput from '../Input/StyledInput';
+import StyledButton from '../Button/StyledButton';
 import Textarea from '../Textarea/StyledTextarea';
 
 const Profile = ({updateProfile}) => (
@@ -68,7 +69,7 @@ const Profile = ({updateProfile}) => (
                 onBlur={handleBlur}
                 value={values.description}
             />
-            <button type="submit" disabled={isSubmitting}>CONNEXION</button>
+            <StyledButton type="submit" disabled={isSubmitting}>Valider les modifications</StyledButton>
             </form>
         )}
         </Formik>
