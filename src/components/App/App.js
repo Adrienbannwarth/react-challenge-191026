@@ -8,10 +8,12 @@ import Login from '../Login';
 import Button from '../Shared/Button';
 import Chart from '../Shared/Chart';
 
+import { UserForm } from '../Shared/UserForm/UserForm'
+
 const history = createBrowserHistory()
 
 const App = ({ isLoggedIn }) => {
-  if (!isLoggedIn) { history.push('/login') }
+//   if (!isLoggedIn) { history.push('/login') }
   return (
     <div className="App">
       <Router>
@@ -20,6 +22,7 @@ const App = ({ isLoggedIn }) => {
             <Route exact path="/" component={Button} />
             <Route path="/login" component={Login} />
             <Route path="/chart" component={Chart} />
+            <Route path="/edit" component={UserForm} />
           </Switch>
         </main>
       </Router>
