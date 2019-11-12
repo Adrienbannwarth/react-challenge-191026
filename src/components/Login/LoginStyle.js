@@ -7,14 +7,26 @@ const LoginStyle = styled.div`
     justify-content: center;
     align-items: center;
 
+    @media screen and (max-width: 576px){
+        padding: 0 20px;
+
+        .form-container{
+            padding: 30px 30px;
+
+        }
+
+    }
+
     .form-container{
         background: #fff;
         border-radius: 25px;
-        padding: 30px 60px;
+        padding: 25px 30px;
+        width: 380px;
     }
 
     .logo-hetic{
-        width: 160px;
+        max-width: 160px;
+        width: auto;
         margin: 0 auto;
         margin-bottom: 40px;
         display: block;
@@ -33,7 +45,7 @@ const LoginStyle = styled.div`
     }
 
     .login-input{
-        width: 300px;
+        width: 100%;
         height: 55px;
         border-radius: 12px;
         background-color: #E3E3E3;
