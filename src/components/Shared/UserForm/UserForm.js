@@ -1,16 +1,26 @@
 import React, { Component } from 'react';
 
-import { GradeInput } from './GradeInput';
+import { GradeInput } from './ChartInput';
 
 export class UserForm extends Component {
-    constructor(props) {
-        super(props);
-    }
-    postData = () => {
-
+    postData = e => {
+        e.preventDefault();
+        fetch('./response.json', {
+            method: 'POST',
+            body: JSON.stringify(this.state)
+        })
+        .then(res => console.log(res))
+        .catch(err => console.error(err))
     }
     handleChanges = e => {
         this.setState({[e.target.name]: e.target.value})
+    }
+    handleClick = e => {
+        e.preventDefault();
+        this.setState({[e.target.name]: e.target.dataset.grade})
+        
+        e.target.dataset.checked = true;
+        return true;
     }
     render() {
         return <>
@@ -48,22 +58,32 @@ export class UserForm extends Component {
                 <h2>Main skills</h2>
                 <GradeInput
                     title={"Programmation côté client"}
+                    label={"client"}
+                    handleClick={this.handleClick}
                 />
 
                 <h2>Secondary skills</h2>
                 <GradeInput
                     title={"Programmation côté serveur"}
+                    label={"server"}
+                    handleClick={this.handleClick}
                 />
                 <GradeInput
                     title={"Design UI"}
+                    label={"ui"}
+                    handleClick={this.handleClick}
                 />
                 <GradeInput
                     title={"Design UX"}
+                    label={"ux"}
+                    handleClick={this.handleClick}
                 />
                 <GradeInput
                     title={"Gestion de projets"}
+                    label={"cdp"}
+                    handleClick={this.handleClick}
                 />
-
+                <input type="submit" onSubmit={this.postData} title="Valider les modifications"/>
             </form>
         </>
     }
