@@ -10,9 +10,9 @@ export const StyledSidebar = styled.div`
     padding: 5vh 2vw 2vh 2vw;
     box-shadow: 13px 0px 9px -6px rgba(0,0,0,0.48);
 
-    @media screen and ()
-    
-
+    @media screen and (max-width: 576px) {
+        display: none;
+    }
 `
 
 export const StyledLogoContainer = styled.div`

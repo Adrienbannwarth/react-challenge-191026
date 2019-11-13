@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import Sidebar from '../Shared/Sidebar/Sidebar.js';
+import MenuMobile from '../Shared/MenuMobile/MenuMobile.js';
 
 // Pages
 import Login from '../Login/Login';
@@ -19,7 +20,7 @@ const App = ({ isLoggedIn }) => {
     <div className="App">
       <Router>
         {window.innerWidth <= 576 &&
-          <h2>IL FAUT DEVELOPPER LA NAV MOBILE</h2> 
+          <MenuMobile/>
         }
         
         {window.innerWidth > 576 &&
