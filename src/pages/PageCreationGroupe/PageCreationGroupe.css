@@ -1,0 +1,18 @@
+.PageCreationGroupe{
+    background-color: #F5F5FB;
+    height: 100vh;
+    padding-top: 30px;
+}
+
+.PageCreationGroupe .page-title{
+    margin-bottom: 50px;
+    margin-left: 30px;
+}
+
+.PageCreationGroupe .page-content{
+    background-color: #fff;
+    margin-left: 100px;
+    border-radius: 10px;
+    padding: 20px 30px;
+    max-width: 80%;
+}

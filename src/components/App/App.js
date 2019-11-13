@@ -7,11 +7,12 @@ import { createBrowserHistory } from 'history';
 import Login from '../Login/Login';
 import Button from '../Shared/Button';
 import Chart from '../Shared/Chart';
+import PageCreationGroupe from '../../pages/PageCreationGroupe/PageCreationGroupe'
 
 const history = createBrowserHistory()
 
 const App = ({ isLoggedIn }) => {
-  if (!isLoggedIn) { history.push('/login') }
+  // if (!isLoggedIn) { history.push('/login') }
   return (
     <div className="App">
       <Router>
@@ -20,6 +21,7 @@ const App = ({ isLoggedIn }) => {
             <Route exact path="/" component={Button} />
             <Route path="/login" component={Login} />
             <Route path="/chart" component={Chart} />
+            <Route path="/creationgroupe" component={PageCreationGroupe} />
           </Switch>
         </main>
       </Router>
