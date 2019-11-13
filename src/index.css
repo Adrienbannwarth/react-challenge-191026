@@ -1,10 +1,15 @@
 :root {
   font-size: 62.5%;
-  font-family: 'Open' sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background: #F5F5FB;
+}
+
+*{
+  box-sizing: border-box;
 }
