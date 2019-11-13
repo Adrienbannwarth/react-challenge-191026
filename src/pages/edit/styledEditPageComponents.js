@@ -114,6 +114,13 @@ export const ScSubmitButton = styled.input`
 
 export const ScLock = styled.div`
     i {
-        color: ${props => props.isLocked ? '#00FF00' : '#FF0000'}
+        color: ${props => props.isLocked ? '#03CEA4' : '#eee'}
+        transition: all 0.2s ease;
+        cursor: pointer;
+        &:hover {
+            transform: scale(1.5);
+            color: ${props => props.isLocked ? '#03CEA4' : '#7affe2'}
+        }
     }
+
 `;

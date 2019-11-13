@@ -22,8 +22,8 @@ const Sidebar = ({ }) => (
             <p>PRIOU Eric</p>
         </ProfileCard>
         <StyledTabContainer>
-          {Links.map(link => (
-            <NavLink exact to={link.url} >
+          {Links.map((link, i) => (
+            <NavLink exact to={link.url} key={i}>
               <Svg id={link.icon}/>
               {link.text}
             </NavLink>

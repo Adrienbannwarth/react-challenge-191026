@@ -24,8 +24,8 @@ const GradeInput = props => {
                     })
                 }
             </nav>
-            <ScLock> 
-                <i className={`fas fa-lock ${props.isLocked}`}></i>
+            <ScLock isLocked={props.isLocked}> 
+                <i className="fas fa-lock"></i>
             </ScLock>
         </ScGradeInput>
     </>
