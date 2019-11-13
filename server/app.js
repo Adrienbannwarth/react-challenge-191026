@@ -7,7 +7,7 @@ const helmet = require("helmet");
 
 // Route
 const studentRoute = require("./src/routes/stutend");
-
+const loginRoute = require("./src/routes/login");
 const app = express();
 
 
@@ -26,12 +26,10 @@ app.use((req, res, next) => {
 });
 
 app.use("/student", studentRoute);
-
-app.get("/toto", (req, res, next) => {
-    console.log("fdfdfdfdfdfdfd")
-})
+app.use("/login", loginRoute);
 
 app.use((req, res, next) => {
+    console.log("FDFDFDFDFDDFD");
     next(createError(404));
 });
 

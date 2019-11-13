@@ -38,6 +38,7 @@ services:
       DB_USER: 'user'
       DB_PASSWORD: 'user'
       DB_NAME: 'react-project'
+      JWT_SECRET: '0298410665'
     networks:
       - database
       - front
