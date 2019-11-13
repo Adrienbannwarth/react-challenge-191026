@@ -6,6 +6,8 @@ const logger = require("morgan");
 const helmet = require("helmet");
 
 // Route
+const studentRoute = require("./src/routes/stutend");
+
 const app = express();
 
 
@@ -23,6 +25,11 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use("/student", studentRoute);
+
+app.get("/toto", (req, res, next) => {
+    console.log("fdfdfdfdfdfdfd")
+})
 
 app.use((req, res, next) => {
     next(createError(404));
