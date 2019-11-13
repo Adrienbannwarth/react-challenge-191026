@@ -31,6 +31,9 @@ export class UserForm extends Component {
         this.setState({[e.target.name]: e.target.dataset.grade})
         return e.target.dataset.checked = true;
     }
+    handleGroupClick = e => {
+        return this.setState({group: e.target.dataset.group})
+    }
     render() {
         return <>
             <form action="" onSubmit={this.postData}>
@@ -61,13 +64,18 @@ export class UserForm extends Component {
                 />
 
                 <h2>Groupe de promotion</h2>
+                <div>
+
                 {
                     this.state.groups.map(group => {
                         return <RadioInput
                             name={group}
+                            handleClick={this.handleGroupClick}
                         />
                     })
                 }
+
+                </div>
 
                 <h2>Main skills</h2>
                 <GradeInput
