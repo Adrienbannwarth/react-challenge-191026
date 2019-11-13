@@ -35,8 +35,8 @@ services:
     command: npm run start
     environment:
       DB_HOST: database
-      DB_USER: 'root'
-      DB_PASSWORD: 'root'
+      DB_USER: 'user'
+      DB_PASSWORD: 'user'
       DB_NAME: 'react-project'
     networks:
       - database
