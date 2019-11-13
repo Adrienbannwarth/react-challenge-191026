@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 
-import UserInput from './UserInput'
-import RadioInput from './RadioInput';
-import GradeInput from './GradeInput';
-
+import UserInput from './inputs/UserInput'
+import RadioInput from './inputs/RadioInput';
+import GradeInput from './inputs/GradeInput';
 
 export class UserForm extends Component {
     constructor(props) {
@@ -49,11 +49,10 @@ export class UserForm extends Component {
         delete POSTED_DATA.groups;
         delete POSTED_DATA.skills;
 
-        console.log(POSTED_DATA);
-
+        return console.log(POSTED_DATA);
     }
     handleChanges = e => {
-        this.setState({
+        return this.setState({
             [e.target.name]: e.target.value
         })
     }
@@ -100,8 +99,6 @@ export class UserForm extends Component {
                 />
 
                 <h2>Groupe de promotion</h2>
-                <div>
-
                 {
                     this.state.groups.map(group => {
                         return <RadioInput
@@ -111,8 +108,6 @@ export class UserForm extends Component {
                         />
                     })
                 }
-
-                </div>
 
                 <h2>Main skills</h2>
                 <GradeInput
@@ -135,7 +130,11 @@ export class UserForm extends Component {
                         
                     })
                 }
-                <input type="submit" onSubmit={this.postData} title="Valider les modifications"/>
+                <input
+                    type="submit" 
+                    onSubmit={this.postData} 
+                    title="Valider les modifications"
+                />
             </form>
         </>
     }
