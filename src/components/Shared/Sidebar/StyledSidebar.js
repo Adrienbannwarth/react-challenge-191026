@@ -6,7 +6,7 @@ export const StyledSidebar = styled.div`
     flex-direction: column;
     max-height: 100vh;
     background-color: white;
-    width: 30rem;
+    width: 100%;
     padding: 5vh 2vw 2vh 2vw;
     box-shadow: 1.3rem 0px 9px -6px rgba(0,0,0,0.48);
 `
