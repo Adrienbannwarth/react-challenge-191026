@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export const GradeInput = props => {
+const GradeInput = props => {
     const [grades, setGrades] = useState([
         'A', 'B', 'C', 'D', 'E'
     ])
@@ -26,3 +26,5 @@ export const GradeInput = props => {
         </div>
     </>
 }
+
+export default GradeInput;

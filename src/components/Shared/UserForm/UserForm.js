@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
 
-import { GradeInput } from './ChartInput';
+import UserInput from './UserInput'
+import RadioInput from './RadioInput';
+import GradeInput from './GradeInput';
+
 
 export class UserForm extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            groups: [
+                '1A', '1B', '2A', '2B'
+            ]
+        }
+    }
     postData = e => {
         e.preventDefault();
         fetch('./response.json', {
@@ -18,42 +29,45 @@ export class UserForm extends Component {
     handleClick = e => {
         e.preventDefault();
         this.setState({[e.target.name]: e.target.dataset.grade})
-        
-        e.target.dataset.checked = true;
-        return true;
+        return e.target.dataset.checked = true;
     }
     render() {
         return <>
             <form action="" onSubmit={this.postData}>
                 <h2>Mon profil</h2>
-                <input 
-                    className="lastname"  
+                <UserInput 
+                    label="lastname"  
                     type="text" 
-                    placeholder="Nom"
-                    name="lastname"
-                    onChange={this.handleChanges}
+                    name="Nom"
+                    handleChanges={this.handleChanges}
                 />
-                <input
-                    className="firstname"
-                    type="text"
-                    placeholder="Prénom"
-                    name="firstname"
-                    onChange={this.handleChanges}
+                <UserInput 
+                    label="firstname"  
+                    type="text" 
+                    name="Prénom"
+                    handleChanges={this.handleChanges}
                 />
-                <input
-                    className="email"
-                    type="email"
-                    placeholder="E-mail"
-                    name="mail"
-                    onChange={this.handleChanges}
+                <UserInput 
+                    label="email"  
+                    type="email" 
+                    name="E-mail"
+                    handleChanges={this.handleChanges}
                 />
-                <input
-                    className="desc"
-                    type="textarea"
-                    placeholder="Description"
-                    name="desc"
-                    onChange={this.handleChanges}
+                <UserInput 
+                    label="description"  
+                    type="textarea" 
+                    name="Description"
+                    handleChanges={this.handleChanges}
                 />
+
+                <h2>Groupe de promotion</h2>
+                {
+                    this.state.groups.map(group => {
+                        return <RadioInput
+                            name={group}
+                        />
+                    })
+                }
 
                 <h2>Main skills</h2>
                 <GradeInput
