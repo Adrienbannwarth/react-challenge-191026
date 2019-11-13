@@ -10,23 +10,27 @@ const data = {
 	datasets: [{
 		data: [300, 50, 100],
 		backgroundColor: [
-		'#FF6384',
-		'#36A2EB',
-		'#FFCE56'
+		'#FF4242',
+		'#7765E3',
+		'#EAC435'
 		],
 		hoverBackgroundColor: [
-		'#FF6384',
-		'#36A2EB',
-		'#FFCE56'
+		'#FF4242',
+		'#7765E3',
+		'#EAC435'
 		]
-    }],
-    hoverBorderWidth: "200px"
+	}]
 };
 
 const Chart = () => (
     <div>
         <h2>Pie Example</h2>
-        <Pie data={data} hoverBorderWidth={"200px"} />
+        <Pie
+			data={data}
+			width={200}
+			height={200}
+			options={{ maintainAspectRatio: false }}
+		/>
     </div>
 )
 
