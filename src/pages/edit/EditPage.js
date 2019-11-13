@@ -31,23 +31,28 @@ export default class UserForm extends Component {
             skills: [
                 {
                     name: 'Programmation côté client',
-                    label: 'client'
+                    label: 'client',
+                    locked: true,
                 },
                 {
                     name: 'Programmation côté serveur',
-                    label: 'server'
+                    label: 'server',
+                    locked: false,
                 },
                 {
                     name: 'Design UI',
-                    label: 'ui'
+                    label: 'ui',
+                    locked: false,
                 },
                 {
                     name: 'Design UX',
-                    label: 'ux'
+                    label: 'ux',
+                    locked: false,
                 },
                 {
                     name: 'Gestion de projet',
-                    label: 'cdp'
+                    label: 'cdp',
+                    locked: false,
                 },
             ],
             group: '1A'
@@ -90,6 +95,9 @@ export default class UserForm extends Component {
             groups: GROUPS,
             group: GROUP
         })
+    }
+    lockSkill = () => {
+
     }
     render() {
         return <>
@@ -138,6 +146,7 @@ export default class UserForm extends Component {
                     title={this.state.skills[0].name}
                     label={this.state.skills[0].label}
                     handleClick={this.handleClick}
+                    isLocked={this.state.skills[0].locked}
                 />
 
                 <ScH2>Secondary skills</ScH2>
@@ -149,6 +158,7 @@ export default class UserForm extends Component {
                             title={skill.name}
                             label={skill.label}
                             handleClick={this.handleClick}
+                            isLocked={skill.locked}
                             />
                     } else return null;    
                 })}

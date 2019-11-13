@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { ScGradeInput, ScGradebutton } from '../styledEditPageComponents'
+import { ScGradeInput, ScGradebutton, ScLock } from '../styledEditPageComponents'
 
 const GradeInput = props => {
     const [grades, setGrades] = useState([
@@ -24,6 +24,9 @@ const GradeInput = props => {
                     })
                 }
             </nav>
+            <ScLock> 
+                <i className={`fas fa-lock ${props.isLocked}`}></i>
+            </ScLock>
         </ScGradeInput>
     </>
 }

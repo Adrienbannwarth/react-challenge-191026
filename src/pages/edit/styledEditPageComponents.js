@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ScH2 = styled.h2`
-    margin: 30px;
+    margin: 30px 30px 50px;
     font-family: Open Sans;
     font-weight: bold;
     font-size: 24px;
@@ -25,6 +25,9 @@ export const ScInput = styled.input`
     box-shadow: 0px 2px 5px -1px rgba(122,122,122,1);
     border-radius: 10px;
     border: none;
+    &[type='textarea'] {
+        padding-bottom: -150px;
+    }
     ::placeholder {
         padding: 40px;
         font-family: Open Sans;
@@ -107,4 +110,10 @@ export const ScSubmitButton = styled.input`
     font-size: 15px;
     line-height: 20px;
     color: #FFFFFF;
+`;
+
+export const ScLock = styled.div`
+    i {
+        color: ${props => props.isLocked ? '#00FF00' : '#FF0000'}
+    }
 `;
