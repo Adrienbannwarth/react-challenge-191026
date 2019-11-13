@@ -10,6 +10,7 @@ import { Col, Row } from 'react-flexbox-grid';
 import Login from '../Login/Login';
 import Button from '../Shared/Button';
 import Chart from '../Shared/Chart';
+import Profile from '../Shared/Profile';
 import Group from '../../pages/Group';
 
 
