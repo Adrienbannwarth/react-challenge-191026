@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
@@ -15,16 +15,27 @@ import Group from '../../pages/Group';
 const history = createBrowserHistory()
 
 const App = ({ isLoggedIn }) => {
+  const [ width, setWidth ] = useState(window.innerWidth)
+
+  useEffect(() => {
+    const handleWindowSizeChange = () => {
+      setWidth(window.innerWidth);
+    }
+    window.addEventListener('resize', handleWindowSizeChange);
+    return () => {
+      window.removeEventListener('resize', handleWindowSizeChange);
+    }
+  });
+
+  const isMobile = width <= 768;
   // if (!isLoggedIn) { history.push('/login') }
   return (
     <div className="App">
       <Router>
-        {window.innerWidth <= 576 &&
+        {isMobile ?
           <MenuMobile/>
-        }
-        
-        {window.innerWidth > 576 &&
-          <Sidebar></Sidebar>
+        :
+          <Sidebar />
         }
         <main>
           <Switch>

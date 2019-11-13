@@ -3,16 +3,12 @@ import styled from 'styled-components'
 export const StyledSidebar = styled.div`
     height: 100vh;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     max-height: 100vh;
     background-color: white;
-    width: 18vw;
+    width: 30rem;
     padding: 5vh 2vw 2vh 2vw;
-    box-shadow: 13px 0px 9px -6px rgba(0,0,0,0.48);
-
-    @media screen and (max-width: 576px) {
-        display: none;
-    }
+    box-shadow: 1.3rem 0px 9px -6px rgba(0,0,0,0.48);
 `
 
 export const StyledLogoContainer = styled.div`
@@ -40,6 +36,12 @@ export const StyledTabContainer = styled.div`
         font-size: 1.5em;
         color: #C4C4C4;
         align-items: center;
+
+
+    }
+
+    .active {
+      color: red;
     }
 
     svg {
@@ -91,13 +93,9 @@ export const DisconnectBtn = styled.div`
             color: white;
         }
     }
-
     p {
         color: red;
         font-family: 'Open Sans', sans-serif;
         margin: 0 auto;
-        
-
     }
 `
-
