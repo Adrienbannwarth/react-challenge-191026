@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { ScH2, ScForm, ScNav } from './styledEditPageComponents';
+import { ScH2, ScForm, ScNav, ScSubmitButton } from './styledEditPageComponents';
 
 import UserInput from './inputs/UserInput'
 import RadioInput from './inputs/RadioInput';
@@ -79,20 +79,17 @@ export default class UserForm extends Component {
         })
         return e.target.dataset.checked = true;
     }
-    handleGroupClick = e => {
+    selectGroup = e => {
         e.preventDefault();
         const GROUPS = this.state.groups;
         const GROUP = e.target.dataset.group;
         GROUPS.forEach(group => {
-            return group.isSelected = GROUP === group.label ? true : false
+            return group.isSelected = GROUP === group.label ? true : false;
         })
         return this.setState({
             groups: GROUPS,
             group: GROUP
         })
-    }
-    setSelection = (bool) => {
-        return bool
     }
     render() {
         return <>
@@ -130,7 +127,7 @@ export default class UserForm extends Component {
                         return <RadioInput
                             key={group.label}
                             name={group.label}
-                            handleClick={this.handleGroupClick}
+                            handleClick={this.selectGroup}
                             isSelected={group.isSelected}
                         />
                     })}
@@ -155,11 +152,17 @@ export default class UserForm extends Component {
                             />
                     } else return null;    
                 })}
-                <input
-                    type="submit" 
-                    onSubmit={this.postData} 
-                    title="Valider les modifications"
-                />
+                <div style={{
+                    width: '100%',
+                    display: 'flex',
+                    justifyContent: 'center'
+                }}>
+                    <ScSubmitButton
+                        type="submit" 
+                        onSubmit={this.postData} 
+                        value="Valider les modifications"
+                    />
+                </div>
             </ScForm>
         </>
     }
