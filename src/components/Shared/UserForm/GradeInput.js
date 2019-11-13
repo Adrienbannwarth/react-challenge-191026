@@ -11,18 +11,17 @@ const GradeInput = props => {
             <nav>
                 {
                     grades.map(grade => {
-                    return <button
-                        name={props.label}
-                        key={grade}
-                        data-grade={grade}
-                        onClick={props.handleClick}
-                    >
-                        {grade}
-                    </button>
-                })}
+                        return <button
+                            name={props.label}
+                            key={grade}
+                            data-grade={grade}
+                            onClick={props.handleClick}
+                        >
+                            {grade}
+                        </button>
+                    })
+                }
             </nav>
-           
-
         </div>
     </>
 }

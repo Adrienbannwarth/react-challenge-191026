@@ -11,28 +11,64 @@ export class UserForm extends Component {
         this.state = {
             groups: [
                 '1A', '1B', '2A', '2B'
-            ]
+            ],
+            skills: [
+                {
+                    name: 'Programmation côté client',
+                    label: 'client'
+                },
+                {
+                    name: 'Programmation côté serveur',
+                    label: 'server'
+                },
+                {
+                    name: 'Design UI',
+                    label: 'ui'
+                },
+                {
+                    name: 'Design UX',
+                    label: 'ux'
+                },
+                {
+                    name: 'Gestion de projet',
+                    label: 'cdp'
+                },
+            ],
+            group: '1A'
         }
     }
     postData = e => {
         e.preventDefault();
-        fetch('./response.json', {
-            method: 'POST',
-            body: JSON.stringify(this.state)
-        })
-        .then(res => console.log(res))
-        .catch(err => console.error(err))
+        // fetch('./response.json', {
+        //     method: 'POST',
+        //     body: JSON.stringify(this.state)
+        // })
+        // .then(res => console.log(res))
+        // .catch(err => console.error(err))
+        const POSTED_DATA = this.state
+        delete POSTED_DATA.groups;
+        delete POSTED_DATA.skills;
+
+        console.log(POSTED_DATA);
+
     }
     handleChanges = e => {
-        this.setState({[e.target.name]: e.target.value})
+        this.setState({
+            [e.target.name]: e.target.value
+        })
     }
     handleClick = e => {
         e.preventDefault();
-        this.setState({[e.target.name]: e.target.dataset.grade})
+        this.setState({
+            [e.target.name]: e.target.dataset.grade
+        })
         return e.target.dataset.checked = true;
     }
     handleGroupClick = e => {
-        return this.setState({group: e.target.dataset.group})
+        e.preventDefault();
+        return this.setState({
+            group: e.target.dataset.group
+        })
     }
     render() {
         return <>
@@ -69,6 +105,7 @@ export class UserForm extends Component {
                 {
                     this.state.groups.map(group => {
                         return <RadioInput
+                            key={group}
                             name={group}
                             handleClick={this.handleGroupClick}
                         />
@@ -79,32 +116,25 @@ export class UserForm extends Component {
 
                 <h2>Main skills</h2>
                 <GradeInput
-                    title={"Programmation côté client"}
-                    label={"client"}
+                    title={this.state.skills[0].name}
+                    label={this.state.skills[0].label}
                     handleClick={this.handleClick}
                 />
 
                 <h2>Secondary skills</h2>
-                <GradeInput
-                    title={"Programmation côté serveur"}
-                    label={"server"}
-                    handleClick={this.handleClick}
-                />
-                <GradeInput
-                    title={"Design UI"}
-                    label={"ui"}
-                    handleClick={this.handleClick}
-                />
-                <GradeInput
-                    title={"Design UX"}
-                    label={"ux"}
-                    handleClick={this.handleClick}
-                />
-                <GradeInput
-                    title={"Gestion de projets"}
-                    label={"cdp"}
-                    handleClick={this.handleClick}
-                />
+                {
+                    this.state.skills.map((skill, i) => {
+                        if (i !== 0) {
+                            return <GradeInput
+                                key={skill.label}
+                                title={skill.name}
+                                label={skill.label}
+                                handleClick={this.handleClick}
+                            />
+                        }
+                        
+                    })
+                }
                 <input type="submit" onSubmit={this.postData} title="Valider les modifications"/>
             </form>
         </>
