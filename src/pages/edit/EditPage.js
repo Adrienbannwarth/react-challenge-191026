@@ -1,16 +1,32 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+
+import { ScH2, ScForm, ScNav } from './styledEditPageComponents';
 
 import UserInput from './inputs/UserInput'
 import RadioInput from './inputs/RadioInput';
 import GradeInput from './inputs/GradeInput';
 
-export class UserForm extends Component {
+export default class UserForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
             groups: [
-                '1A', '1B', '2A', '2B'
+                {
+                    label: '1A',
+                    isSelected: true
+                },
+                {
+                    label: '1B',
+                    isSelected: false
+                },
+                {
+                    label: '2A',
+                    isSelected: false
+                },
+                {
+                    label: '2B',
+                    isSelected: false
+                }
             ],
             skills: [
                 {
@@ -65,14 +81,24 @@ export class UserForm extends Component {
     }
     handleGroupClick = e => {
         e.preventDefault();
-        return this.setState({
-            group: e.target.dataset.group
+        const GROUPS = this.state.groups;
+        const GROUP = e.target.dataset.group;
+        GROUPS.forEach(group => {
+            return group.isSelected = GROUP === group.label ? true : false
         })
+        return this.setState({
+            groups: GROUPS,
+            group: GROUP
+        })
+    }
+    setSelection = (bool) => {
+        return bool
     }
     render() {
         return <>
-            <form action="" onSubmit={this.postData}>
-                <h2>Mon profil</h2>
+            <ScForm action="" onSubmit={this.postData}>
+                <ScH2>Mon profil</ScH2>
+
                 <UserInput 
                     label="lastname"  
                     type="text" 
@@ -98,44 +124,43 @@ export class UserForm extends Component {
                     handleChanges={this.handleChanges}
                 />
 
-                <h2>Groupe de promotion</h2>
-                {
-                    this.state.groups.map(group => {
+                <ScNav>
+                    <ScH2>Groupe de promotion</ScH2>
+                    {this.state.groups.map(group => {
                         return <RadioInput
-                            key={group}
-                            name={group}
+                            key={group.label}
+                            name={group.label}
                             handleClick={this.handleGroupClick}
+                            isSelected={group.isSelected}
                         />
-                    })
-                }
+                    })}
+               </ScNav>
 
-                <h2>Main skills</h2>
+                <ScH2>Main skills</ScH2>
                 <GradeInput
                     title={this.state.skills[0].name}
                     label={this.state.skills[0].label}
                     handleClick={this.handleClick}
                 />
 
-                <h2>Secondary skills</h2>
-                {
-                    this.state.skills.map((skill, i) => {
-                        if (i !== 0) {
-                            return <GradeInput
-                                key={skill.label}
-                                title={skill.name}
-                                label={skill.label}
-                                handleClick={this.handleClick}
+                <ScH2>Secondary skills</ScH2>
+
+                {this.state.skills.map((skill, i) => {
+                    if (i !== 0) {
+                        return <GradeInput
+                            key={skill.label}
+                            title={skill.name}
+                            label={skill.label}
+                            handleClick={this.handleClick}
                             />
-                        }
-                        
-                    })
-                }
+                    } else return null;    
+                })}
                 <input
                     type="submit" 
                     onSubmit={this.postData} 
                     title="Valider les modifications"
                 />
-            </form>
+            </ScForm>
         </>
     }
 }

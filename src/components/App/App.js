@@ -8,7 +8,7 @@ import Login from '../Login';
 import Button from '../Shared/Button';
 import Chart from '../Shared/Chart';
 
-import { UserForm } from '../Shared/UserForm/UserForm'
+import EditPage from '../../pages/edit/EditPage'
 
 const history = createBrowserHistory()
 
@@ -22,7 +22,7 @@ const App = ({ isLoggedIn }) => {
             <Route exact path="/" component={Button} />
             <Route path="/login" component={Login} />
             <Route path="/chart" component={Chart} />
-            <Route path="/edit" component={UserForm} />
+            <Route path="/edit" component={EditPage} />
           </Switch>
         </main>
       </Router>
