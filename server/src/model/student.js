@@ -24,5 +24,58 @@ module.exports = {
         } catch (e) {
             throw e;
         }
+    },
+    getStudentOfFacultyAndPromo: async (idPromo, idFaculty) => {
+        let sql = `
+            SELECT
+                students.id,
+                s.competenceName as mainSkill,
+                firstName,
+                lastName,
+                gP.name
+            FROM
+                students
+                    INNER JOIN groupPromo gP on students.idGroup = gP.id
+                    INNER JOIN skill s on students.idCompetence = s.id
+            WHERE
+                gP.idFaculty = ?
+            AND
+                gP.idPromo = ?;
+        `;
+        try {
+            const connection = await mysql.connection();
+            const students = await connection.query(sql, [idFaculty, idPromo]);
+            connection.end();
+            return students
+        } catch (e) {
+            throw e;
+        }
+    },
+    updateAccount: async (dataAccount, idAccount) => {
+        let sql = `
+            UPDATE
+                students
+            SET
+                mail = ?,
+                firstName = ?,
+                lastName = ?,
+                idCompetence = ?
+            WHERE
+                id = ?;
+        `;
+        try {
+            const connection = await mysql.connection();
+            const updateAccountData = await connection.query(sql, [
+                dataAccount.mail,
+                dataAccount.firstName,
+                dataAccount.lastName,
+                dataAccount.idCompetence,
+                idAccount
+            ]);
+            connection.end();
+            return updateAccountData;
+        } catch (e) {
+            throw e;
+        }
     }
 };

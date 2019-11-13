@@ -1,20 +1,18 @@
 const express = require("express");
 const router = express.Router();
+const checkToken = require("../middleware/token");
 
-router.get("/" ,  async (req, res, next) => {
-
+router.get("/", checkToken.verifyToken, checkToken.checkAuth, async (req, res, next) => {
+    res.status(200).send("En cours");
 });
 
-router.post("/", /* Middle to check intervenant acess,*/ async (req, res, next) => {
-
+router.post("/add", checkToken.verifyToken, checkToken.checkAuth, async (req, res, next) => {
+    res.status(200).send("En cours");
 });
 
-router.put("/:idProject", /* Middle to check intervenant acess,*/ async (req, res, next) => {
-
+router.delete("/delete/:idGroup", checkToken.verifyToken, checkToken.checkAuth, async (req, res, next) => {
+    res.status(200).send("En cours");
 });
 
-router.delete("/idProject", /* Middle to check intervenant acess,*/ async (req, res, next) => {
-
-});
 
 module.exports = router;

@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const jwtSecret = process.env.JWT_TOKEN || "12345679";
+const jwtSecret = process.env.JWT_SECRET || "12345679";
 
 module.exports = {
     checkPassword: async (plainTextPassword, password) => {
@@ -19,6 +19,12 @@ module.exports = {
             id: accountData.id,
             role: (isStudent ? "student" : "teacher"),
         };
-        return await jwt.sign(infoAccount, jwtSecret)
+        if (isStudent) {
+            console.log("FSDFDSFSDFDSFDSF");
+            infoAccount.idPromo = accountData.promoId;
+            infoAccount.facultyId = accountData.idFaculty;
+            console.log(infoAccount);
+        }
+        return await jwt.sign({infoAccount: infoAccount}, jwtSecret)
     },
 };

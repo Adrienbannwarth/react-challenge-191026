@@ -4,13 +4,18 @@ module.exports = {
     getStudent: async (email) => {
         let sql = `
             SELECT
-                id,
+                students.id,
                 mail,
                 password,
                 firstName,
-                lastName
+                lastName,
+                p.id as promoId,
+                f.id as idFaculty
             FROM
                 students
+            INNER JOIN groupPromo gP on students.idGroup = gP.id
+            INNER JOIN promo p on gP.idPromo = p.id
+            INNER JOIN faculty f on gP.idFaculty = f.id
             WHERE
                 mail = ?;
         `;
@@ -44,5 +49,6 @@ module.exports = {
         } catch (e) {
             throw e;
         }
-    }
+    },
+
 };

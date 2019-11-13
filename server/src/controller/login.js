@@ -13,8 +13,6 @@ module.exports = {
             emailIsValid(req.body.email);
             const studentAccount = await loginSql.getStudent(req.body.email);
             const teacherAccount = await loginSql.getTeacherAccoun(req.body.email);
-            console.log(studentAccount);
-            console.log(teacherAccount);
             if (typeof studentAccount === "undefined" && typeof teacherAccount === "undefined")
                 throw "bad login";
             const password = studentAccount ? studentAccount.password : teacherAccount.password;
