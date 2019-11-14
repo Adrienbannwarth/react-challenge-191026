@@ -29,6 +29,7 @@ export const TextLight = styled.p`
 `
 export const StyledJob = styled.p`
 position: relative;
+margin-left: 2rem;
   &::after {
     content: '';
     position: absolute;
