@@ -92,13 +92,23 @@ export default class UserForm extends Component {
     }
     handleLockerClick = e => {
         e.preventDefault();
-        const SKILLS = this.state.skills.concat();
-        SKILLS.forEach(skill => {
-            skill.isLocked = e.target.dataset.label === skill.label ? true : false;
+        const SKILLS = [...this.state.skills];
+        let index = 0;
+        SKILLS.forEach((skill, i) => {
+            if (e.target.dataset.label === skill.label) {
+                index = i
+                return skill.isLocked = true;
+            } else {
+                return skill.isLocked = false;
+            }
         })
+        const firstEl = SKILLS.splice(index, 1);
+        console.log(firstEl)
+        SKILLS.unshift(firstEl[0])
+        console.log(SKILLS)
         return this.setState({
             skills: SKILLS
-        })
+        }, console.log(this.state.skills))
     }
     render() {
         return <>
