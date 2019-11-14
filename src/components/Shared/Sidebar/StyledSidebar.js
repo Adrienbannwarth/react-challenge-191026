@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 
 export const StyledSidebar = styled.div`
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    max-height: 100vh;
-    background-color: white;
-    width: 100%;
-    padding: 5vh 2vw 2vh 2vw;
-    box-shadow: 1.3rem 0px 9px -6px rgba(0,0,0,0.48);
+  position: fixed;
+  height: 100%;
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 5vh 2vw 2vh 2vw;
+  box-shadow: 0 .2rem 3rem rgba(0, 0, 0, 0.05);
 `
 
 export const StyledLogoContainer = styled.div`
@@ -25,6 +25,7 @@ export const StyledLogoContainer = styled.div`
 
 export const StyledTabContainer = styled.div`
     height: 100%;
+    position: relative;
 
     a {
         display: flex;
@@ -36,12 +37,20 @@ export const StyledTabContainer = styled.div`
         font-size: 1.5em;
         color: #C4C4C4;
         align-items: center;
-
-
     }
 
     .active {
-      color: red;
+      &::after {
+        content: '';
+        height: 1rem;
+        width: .4rem;
+        background: #7765E3;
+        position: absolute;
+        right: 0;
+      }
+      svg {
+        color: #7765E3;
+      }
     }
 
     svg {

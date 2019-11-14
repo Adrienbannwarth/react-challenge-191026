@@ -1,3 +1,3 @@
 export default ({
-  signIn: () => `/sign_in`,
+  signIn: () => `/login`,
 });

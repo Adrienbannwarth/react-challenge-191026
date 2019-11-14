@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyledSidebar, StyledLogoContainer, StyledTabContainer, ProfileCard, DisconnectBtn } from './StyledSidebar';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 import heticLogo from '../../../assets/imgs/logo-hetic.png'
 import Svg from '../Svg'
 
@@ -12,10 +13,10 @@ const Links = [
 ];
 
 
-const Sidebar = ({ }) => (
+const Sidebar = ({ profilePicture }) => (
     <StyledSidebar>
         <StyledLogoContainer>
-            <img src={heticLogo} alt=""/>
+            <img src={heticLogo} alt="logo hetic"/>
         </StyledLogoContainer>
         <ProfileCard>
             <div />
@@ -33,6 +34,16 @@ const Sidebar = ({ }) => (
             <p>Se deconnecter</p>
         </DisconnectBtn>
     </StyledSidebar>
-)
+);
 
-export default Sidebar;
+const mapStateToProps = (state) => {
+  return {
+    profilePicture: state.profilePicture,
+  };
+};
+
+Sidebar.defaultProps = {
+  profilePicture: null,
+}
+
+export default connect(mapStateToProps, null)(Sidebar);
