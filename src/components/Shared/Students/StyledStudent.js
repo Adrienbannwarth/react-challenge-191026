@@ -6,8 +6,9 @@ export const Container = styled.div`
   align-items: center;
   font-size: 1.8rem;
   padding: 1.5rem 4rem;
-  margin: 2rem 0px;
-  max-width: 100rem;
+  margin: 1rem 0px;
+  /* max-width: 100rem; */
+  background: #ffffff;
   height: 6rem;
   box-shadow: 0 .4rem .2rem rgba(163, 160, 160, 0.25);
   border-radius: 1rem;

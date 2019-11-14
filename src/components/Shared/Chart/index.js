@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pie } from 'react-chartjs-2';
+import { Pie, Bar } from 'react-chartjs-2';
 
 const data = {
 	labels: [
@@ -22,16 +22,75 @@ const data = {
 	}]
 };
 
-const Chart = () => (
-    <div>
-        <h2>Pie Example</h2>
-        <Pie
-			data={data}
-			width={200}
-			height={200}
-			options={{ maintainAspectRatio: false }}
-		/>
-    </div>
-)
+const dataBar = {
+	labels: [
+		'A',
+		'B',
+		'C',
+		'D',
+		'E',
+		'F',
+	],
+	datasets: [{
+		data: [80, 60, 70, 30, 25, 70],
+		backgroundColor: [
+		'#03CEA4',
+		'#03CEA4',
+		'#EAC435',
+		'#EAC435',
+		'#FF4242',
+		'#FF4242'
+		],
+		hoverBackgroundColor: [
+		'#03CEA4',
+		'#03CEA4',
+		'#EAC435',
+		'#EAC435',
+		'#FF4242',
+		'#FF4242'
+		]
+	}]
+};
+
+const Chart = ({type}) => type === "pie" ? (
+	<Pie
+		data={data}
+		width={160}
+		height={160}
+		options={{ 
+			maintainAspectRatio: false,
+			legend: {
+				display: false,
+			}
+		}}
+	/>
+) : (
+	<Bar
+		data={dataBar}
+		width={160}
+		height={160}
+		options={{ 
+			maintainAspectRatio: false,
+			legend: {
+				display: false
+			},
+			scales: {
+				xAxes: [{
+					gridLines: {
+						display:false
+					}
+				}],
+				yAxes: [{
+					gridLines: {
+						display:false
+					},
+					ticks: {
+						display: false
+					}
+				}]
+			}
+		}}
+	/>
+);
 
 export default Chart
