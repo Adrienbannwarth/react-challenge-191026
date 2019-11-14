@@ -8,7 +8,7 @@ const Links = [
   { text: 'Home', icon: 'home', url: '/' },
   { text: 'Liste des etudiants', icon: 'icon_list', url: '/student-list' },
   { text: 'Création de groupe', icon: 'pen', url: '/create-group' },
-  { text: 'Groupe', icon: 'multiple_users', url: '/users'}
+  { text: 'Groupe', icon: 'multiple_users', url: '/group'}
 ];
 
 

@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import Sidebar from '../Shared/Sidebar/Sidebar.js';
 import MenuMobile from '../Shared/MenuMobile/MenuMobile.js';
-import { Col, Row } from 'react-flexbox-grid';
+import { Col, Row, Grid } from 'react-flexbox-grid';
 
 // Pages
 import Login from '../Login/Login';
@@ -46,14 +46,16 @@ const App = ({ isLoggedIn }) => {
           </Col>
           <Col xs={12} md={10}>
             <main>
-              <Switch>
-                <Route exact path="/" component={Button} />
-                <Route path="/login" component={Login} />
-                <Route path="/chart" component={Chart} />
-                <Route path="/group" component={Group} />
-                <Route path="/edit" component={EditPage} />
-                <Route path="/student-list" component={StudentList} />
-              </Switch>
+              <Grid>
+                <Switch>
+                  <Route exact path="/" component={Button} />
+                  <Route path="/login" component={Login} />
+                  <Route path="/chart" component={Chart} />
+                  <Route path="/group" component={Group} />
+                  <Route path="/edit" component={EditPage} />
+                  <Route path="/student-list" component={StudentList} />
+                </Switch>
+              </Grid>
             </main>
           </Col>
         </Row>

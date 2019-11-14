@@ -17,7 +17,7 @@ const Group = () => {
                 <h2>Mes groupes</h2>
                 <Row>
                     {studentProjects && studentProjects.map(project => (
-                        <Col xs={6} key={project.projectName}>
+                        <Col xs={12} md={6} key={project.projectName}>
                             <Groups groupName={project.projectName} members={project.members} />
                         </Col>
                     ))}
@@ -27,7 +27,7 @@ const Group = () => {
     }
 
     return (
-        <Root>
+        <Root className="noGroupContainer">
             <h2>Liste des groupes</h2>
             <SelectWrapper>
                 <select onChange={e => setOption(parseInt(e.target.value))}>
@@ -42,7 +42,7 @@ const Group = () => {
                 projectGroups.filter(projectGroup => projectGroup.projectID === option) &&
                 projectGroups.filter(projectGroup => projectGroup.projectID === option)[0] &&
                 projectGroups.filter(projectGroup => projectGroup.projectID === option)[0].groups.map(group => (
-                    <Col xs={6} key={group.groupName}>
+                    <Col xs={12} md={6} key={group.groupName}>
                         <Groups groupName={group.groupName} members={group.members} />
                     </Col>
                 ))}

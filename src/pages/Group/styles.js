@@ -14,11 +14,18 @@ export const Root = styled.div`
         color: #000000;
         margin-bottom: 5rem;
     }
+
+    &.noGroupContainer {
+        position: relative;
+        min-height: 90vh;
+    }
 `;
 
 export const SelectWrapper = styled.div`
     position: relative;
-    width: 224px;
+    @media screen and (min-width: 768px) {
+        width: 224px;
+    }
     height: 51px;
     margin-bottom: 1.7rem;
 
@@ -34,7 +41,8 @@ export const SelectWrapper = styled.div`
         border-top: 12px solid #FFFFFF;
         border-right: 8px solid transparent;
         border-left: 8px solid transparent;
-        z-index: 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000;
+        z-index: 100;
+        pointer-events: none;
     }
     select {
         width: 100%;
@@ -73,8 +81,13 @@ export const NoGroup = styled.div`
         font-family: "Open" sans-serif;
         font-style: normal;
         font-weight: normal;
-        font-size: 36px;
-        line-height: 49px;
+        font-size: 2.4rem;
+        margin-bottom: 5rem;
+        @media screen and (min-width: 768px) {
+            font-size: 3.6rem;
+            margin-bottom: 3.6rem;
+        }
+        line-height: 4.9rem;
         color: #C4C4C4;
     }
 
