@@ -8,7 +8,7 @@ import { client, options } from '../../helpers/api';
 const enhancers = [];
 const middleware = [
   thunk,
-  axiosMiddleware(client),
+  axiosMiddleware(client, options),
 ];
 
 const createStoreWithMiddleware = compose(applyMiddleware(...middleware)(createStore));

@@ -7,10 +7,10 @@ import { signIn } from '../../redux/actions/user';
 import LoginStyle from './LoginStyle'
 import logoHetic from '../../assets/imgs/logo-hetic.png'
 
-const Login = ({ signIn }) => {
+const Login = ({ signIn, history }) => {
   return (
     <Formik
-      initialValues={{ email: 'alex@alex.com', password: '123123123123' }}
+      initialValues={{ email: 'Adam_Mann17@gmail.com', password: 'azerty' }}
       validate={values => {
         let errors = {};
         if (!values.email) { errors.email = 'Required'; }
@@ -18,7 +18,13 @@ const Login = ({ signIn }) => {
           errors.email = 'Invalid email address'; }
         return errors;
       }}
-      onSubmit={values => { signIn(values) }}
+      onSubmit={values => {
+        signIn(values).then((res) => {
+          if (res.payload.status === 200) {
+            history.push('/edit');
+          }
+        })}
+      }
     >
       {({
         values,

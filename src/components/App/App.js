@@ -39,7 +39,7 @@ const App = ({ isLoggedIn }) => {
         <Row>
           <Col xs={12} md={2}>
             {isMobile ?
-              <MenuMobile/> 
+              <MenuMobile/>
               : <Sidebar />
             }
           </Col>
@@ -48,7 +48,7 @@ const App = ({ isLoggedIn }) => {
               <Grid>
                 <Switch>
                   <Route exact path="/" component={Home} />
-                  <Route path="/login" component={Login} />
+                  <Route path="/login" component={Login} history={history} />
                   <Route path="/chart" component={Chart} />
                   <Route path="/group" component={Group} />
                   <Route path="/edit" component={EditPage} />
