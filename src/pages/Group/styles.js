@@ -58,3 +58,38 @@ export const SelectWrapper = styled.div`
         position: relative;
     }
 `;
+
+export const NoGroup = styled.div`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    h3 {
+        font-family: "Open" sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 36px;
+        line-height: 49px;
+        color: #C4C4C4;
+    }
+
+    a {
+        background: #03CEA4;
+        border-radius: 43.5px;
+        font-family: "Open" sans-serif;
+        padding: 14px;
+        width: 310px;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 15px;
+        line-height: 20px;
+        text-align: center;
+        color: #FFFFFF;
+        text-decoration: none;
+    }
+`;

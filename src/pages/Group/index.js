@@ -1,19 +1,37 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
-import { Root, SelectWrapper } from './styles.js';
-import projectGroups from "../../helpers/projectGroups";
+import { Root, SelectWrapper, NoGroup } from './styles.js';
+import { projectGroups, studentProjects } from "../../helpers/projectGroups";
 import Groups from "../../components/Shared/Groups";
 import { Row, Col } from "react-flexbox-grid";
 
+const isStudent = false;
+
 const Group = () => {
-    const [option, setOption] = useState(projectGroups[0].projectID);
-    console.log(option)
+    const [option, setOption] = useState(projectGroups[0] ? projectGroups[0].projectID : null);
+
+    if (isStudent) {
+        return (
+            <Root>
+                <h2>Mes groupes</h2>
+                <Row>
+                    {studentProjects && studentProjects.map(project => (
+                        <Col xs={6} key={project.projectName}>
+                            <Groups groupName={project.projectName} members={project.members} />
+                        </Col>
+                    ))}
+                </Row>
+            </Root>
+        )
+    }
 
     return (
         <Root>
             <h2>Liste des groupes</h2>
             <SelectWrapper>
                 <select onChange={e => setOption(parseInt(e.target.value))}>
+                    <option value="" disabled selected>Liste des projets</option>
                     {projectGroups && projectGroups.map(project => (
                         <option key={project.projectID} value={project.projectID}>{project.projectName}</option>
                     ))}
@@ -29,6 +47,12 @@ const Group = () => {
                     </Col>
                 ))}
             </Row>
+            {option === null && (
+                <NoGroup>
+                    <h3>Aucun groupe de disponible</h3>
+                    <Link to="/something">Créer un groupe</Link>
+                </NoGroup>
+            )}
       </Root>
     )
 }
