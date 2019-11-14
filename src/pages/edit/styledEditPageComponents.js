@@ -13,6 +13,9 @@ export const ScH2 = styled.h2`
 `;
 
 export const ScForm = styled.form`
+    width: calc(100% - 24rem);
+    position absolute;
+    left: 24rem;
     display: flex;
     flex-direction: column;
 `;
@@ -94,8 +97,14 @@ export const ScGradebutton = styled.button`
     color: #fff;
     font-family: Open Sans;
     font-weight: bold;
-    font-size: 24px;
-    line-height: 33px;
+    font-size: 20px;
+    line-height: 30px;
+    &:nth-child(${props => props.grade + 1}) {
+        ${props => props.grade + 1 === 1 || props.grade + 1 === 2 ? 'background: #03CEA4' : null}
+        ${props => props.grade + 1 === 3 || props.grade + 1 === 4 ? 'background: #EAC435' : null}
+        ${props => props.grade + 1 === 5 || props.grade + 1 === 6 ? 'background: #FF4242' : null}
+    }
+    
 `;
 
 export const ScSubmitButton = styled.input`
