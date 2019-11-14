@@ -11,6 +11,7 @@ import Login from '../Login/Login';
 import Button from '../Shared/Button';
 import Chart from '../Shared/Chart';
 import Group from '../../pages/Group';
+import StudentList from '../../pages/StudentList';
 
 
 import EditPage from '../../pages/edit/EditPage'
@@ -51,6 +52,7 @@ const App = ({ isLoggedIn }) => {
                 <Route path="/chart" component={Chart} />
                 <Route path="/group" component={Group} />
                 <Route path="/edit" component={EditPage} />
+                <Route path="/student-list" component={StudentList} />
               </Switch>
             </main>
           </Col>
