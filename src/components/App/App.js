@@ -13,7 +13,6 @@ import Chart from '../Shared/Chart';
 import Profile from '../Shared/Profile';
 import Group from '../../pages/Group';
 
-
 const history = createBrowserHistory()
 
 const App = ({ isLoggedIn }) => {
@@ -49,6 +48,7 @@ const App = ({ isLoggedIn }) => {
                 <Route path="/login" component={Login} />
                 <Route path="/chart" component={Chart} />
                 <Route path="/group" component={Group} />
+                <Route path="/profile" component={Profile} />
               </Switch>
             </main>
           </Col>
