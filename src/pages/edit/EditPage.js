@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import { ScH2, ScForm, ScNav, ScSubmitButton } from './styledEditPageComponents';
+import { getAccount } from '../../redux/actions/account';
 
 import UserInput from './inputs/UserInput'
 import RadioInput from './inputs/RadioInput';
 import GradeInput from './inputs/GradeInput';
 
-export default class UserForm extends Component {
+class UserForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -58,6 +60,9 @@ export default class UserForm extends Component {
             group: '1A'
         }
     }
+    componentDidMount() {
+      this.props.getAccount();
+    }
     postData = e => {
         e.preventDefault();
         // fetch('./response.json', {
@@ -104,27 +109,27 @@ export default class UserForm extends Component {
             <ScForm action="" onSubmit={this.postData}>
                 <ScH2>Mon profil</ScH2>
 
-                <UserInput 
-                    label="lastname"  
-                    type="text" 
+                <UserInput
+                    label="lastname"
+                    type="text"
                     name="Nom"
                     handleChanges={this.handleChanges}
                 />
-                <UserInput 
-                    label="firstname"  
-                    type="text" 
+                <UserInput
+                    label="firstname"
+                    type="text"
                     name="Prénom"
                     handleChanges={this.handleChanges}
                 />
-                <UserInput 
-                    label="email"  
-                    type="email" 
+                <UserInput
+                    label="email"
+                    type="email"
                     name="E-mail"
                     handleChanges={this.handleChanges}
                 />
-                <UserInput 
-                    label="description"  
-                    type="textarea" 
+                <UserInput
+                    label="description"
+                    type="textarea"
                     name="Description"
                     handleChanges={this.handleChanges}
                 />
@@ -160,7 +165,7 @@ export default class UserForm extends Component {
                             handleClick={this.handleClick}
                             isLocked={skill.locked}
                             />
-                    } else return null;    
+                    } else return null;
                 })}
                 <div style={{
                     width: '100%',
@@ -168,8 +173,8 @@ export default class UserForm extends Component {
                     justifyContent: 'center'
                 }}>
                     <ScSubmitButton
-                        type="submit" 
-                        onSubmit={this.postData} 
+                        type="submit"
+                        onSubmit={this.postData}
                         value="Valider les modifications"
                     />
                 </div>
@@ -177,3 +182,17 @@ export default class UserForm extends Component {
         </>
     }
 }
+
+const mapStateToProps = (state) => {
+  return {
+
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getAccount: () => dispatch(getAccount()),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserForm);

@@ -15,13 +15,10 @@ export const options = {
   interceptors: {
     request: [
       (store, config) => {
-        if (
-          store.getState().user.credentials['access-token'] &&
-          store.getState().user.credentials.expiry >= Math.floor(Date.now()/1000)
-        ) {
-          config.headers['access-token'] = store.getState().user.credentials['access-token'];
-          config.headers.client = store.getState().user.credentials.client;
-          config.headers.uid = store.getState().user.credentials.uid;
+        if (store.getState().user.credentials['access-token']) {
+          config.headers['Authorization'] = `Bearer ${store.getState().user.credentials['access-token']}`;
+        } else if (window.localStorage.getItem('user')) {
+          config.headers['Authorization'] = `Bearer ${JSON.parse(window.localStorage.getItem('user'))}`;
         }
         return config;
       }
