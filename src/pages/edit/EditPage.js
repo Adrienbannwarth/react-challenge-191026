@@ -32,27 +32,27 @@ export default class UserForm extends Component {
                 {
                     name: 'Programmation côté client',
                     label: 'client',
-                    locked: true,
+                    isLocked: true,
                 },
                 {
                     name: 'Programmation côté serveur',
                     label: 'server',
-                    locked: false,
+                    isLocked: false,
                 },
                 {
                     name: 'Design UI',
                     label: 'ui',
-                    locked: false,
+                    isLocked: false,
                 },
                 {
                     name: 'Design UX',
                     label: 'ux',
-                    locked: false,
+                    isLocked: false,
                 },
                 {
                     name: 'Gestion de projet',
                     label: 'cdp',
-                    locked: false,
+                    isLocked: false,
                 },
             ],
             group: '1A'
@@ -60,12 +60,6 @@ export default class UserForm extends Component {
     }
     postData = e => {
         e.preventDefault();
-        // fetch('./response.json', {
-        //     method: 'POST',
-        //     body: JSON.stringify(this.state)
-        // })
-        // .then(res => console.log(res))
-        // .catch(err => console.error(err))
         const POSTED_DATA = this.state
         delete POSTED_DATA.groups;
         delete POSTED_DATA.skills;
@@ -96,8 +90,15 @@ export default class UserForm extends Component {
             group: GROUP
         })
     }
-    lockSkill = () => {
-
+    handleLockerClick = e => {
+        e.preventDefault();
+        const SKILLS = this.state.skills.concat();
+        SKILLS.forEach(skill => {
+            skill.isLocked = e.target.dataset.label === skill.label ? true : false;
+        })
+        return this.setState({
+            skills: SKILLS
+        })
     }
     render() {
         return <>
@@ -146,7 +147,8 @@ export default class UserForm extends Component {
                     title={this.state.skills[0].name}
                     label={this.state.skills[0].label}
                     handleClick={this.handleClick}
-                    isLocked={this.state.skills[0].locked}
+                    isLocked={this.state.skills[0].isLocked}
+                    handleLockerClick={this.handleLockerClick}
                 />
 
                 <ScH2>Secondary skills</ScH2>
@@ -154,11 +156,12 @@ export default class UserForm extends Component {
                 {this.state.skills.map((skill, i) => {
                     if (i !== 0) {
                         return <GradeInput
-                            key={skill.label}
+                            key={i}
                             title={skill.name}
                             label={skill.label}
                             handleClick={this.handleClick}
-                            isLocked={skill.locked}
+                            isLocked={skill.isLocked}
+                            handleLockerClick={this.handleLockerClick}
                             />
                     } else return null;    
                 })}
