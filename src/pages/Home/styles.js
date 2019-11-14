@@ -37,6 +37,7 @@ export const Root = styled.div`
 export const Box = styled.div`
     background: #FFFFFF;
     padding: 2.4rem 2.6rem 1rem;
+    height: 100%;
 
     ul {
         padding: 0px;
@@ -93,5 +94,16 @@ export const Box = styled.div`
         margin: 0 auto;
         display: block;
         margin-top: 2rem;
+        cursor: pointer;
+    }
+`;
+
+export const ChartsContainer = styled.div`
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5rem;
+
+    .barContainer {
+        transform: translateY(1rem);
     }
 `;

@@ -1,8 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Root, Box } from './styles.js';
+import { Root, Box, ChartsContainer } from './styles.js';
 import { Row, Col } from "react-flexbox-grid";
 import Svg from "../../components/Shared/Svg";
+import Chart from "../../components/Shared/Chart";
 
 const isStudent = false;
 
@@ -47,6 +48,14 @@ const Home = () => {
                 <Col className="colHome" xs={12} md={5}>
                     <Box>
                         <h3>Répartition des skills <span>par promotion</span>:</h3>
+                        <ChartsContainer>
+                            <div>
+                                <Chart type="pie" />
+                            </div>
+                            <div className="barContainer">
+                                <Chart type="bars" />
+                            </div>
+                        </ChartsContainer>
                     </Box>
                 </Col>
             </Row>
