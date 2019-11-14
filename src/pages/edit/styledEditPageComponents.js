@@ -8,7 +8,6 @@ export const ScH2 = styled.h2`
     line-height: 33px;
     display: flex;
     align-items: center;
-
     color: #000000;
 `;
 
@@ -21,18 +20,23 @@ export const ScForm = styled.form`
 `;
 
 export const ScInput = styled.input`
-    background: #FFFFFF;
     width: calc(100% - 2 * 30px);
     min-height: 50px;
     margin: 0 30px 30px;
-    box-shadow: 0px 2px 5px -1px rgba(122,122,122,1);
+    padding: 20px 40px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 2px rgba(163, 160, 160, 0.25);
     border-radius: 10px;
+    font-family: Open Sans;
+        font-size: 18px;
+        line-height: 25px;
+        display: flex;
+        align-items: center;
     border: none;
     &[type='textarea'] {
-        padding-bottom: -150px;
+        padding-bottom: 150px;
     }
     ::placeholder {
-        padding: 40px;
         font-family: Open Sans;
         font-size: 18px;
         line-height: 25px;
@@ -52,7 +56,7 @@ export const ScButton = styled.button`
     color: ${props => props.isSelected ? "#fff" : "#A5A5A5"};
     margin: 0 15px 30px;
     padding: 10px 25px;
-    box-shadow: 0px 2px 5px -1px rgba(122,122,122,1);
+    box-shadow: 0px 4px 2px rgba(163, 160, 160, 0.25);
     border-radius: 10px;
     border: none;
     font-family: Open Sans;
@@ -78,7 +82,7 @@ export const ScGradeInput = styled.div`
     font-weight: 600;
     font-size: 18px;
     line-height: 25px;
-    box-shadow: 0px 2px 5px -1px rgba(122,122,122,1);
+    box-shadow: 0px 4px 2px rgba(163, 160, 160, 0.25);
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
@@ -113,6 +117,7 @@ export const ScSubmitButton = styled.input`
     border-radius: 43.5px;
     border: none;
     padding: 14px;
+    margin: 50px auto;
     text-transform: uppercase;
     font-family: Open Sans;
     font-weight: bold;
