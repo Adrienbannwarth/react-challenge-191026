@@ -1,10 +1,10 @@
 ##UX UI 
 
 #Nous étions quatre à travailler sur les l'Ux/UI: Adrien Bannwarth, Ramiya Raviraja, Thomas Nguyen, Andy Dodakal
-Création de maquettes (DESKTOP et MOBILE)
 
+Nous avons donc décliner les maquettes pour chaque page en versions Desktop et Mobile:
 
-#Page login (Intervenants et Etudiants)
+- Page login (Intervenants et Etudiants)
 
 ##Section Intervenants
 - Page Home
@@ -17,3 +17,5 @@ Création de maquettes (DESKTOP et MOBILE)
 - Page Home
 - Page Modifier son profil étudiant
 - Page Groupes étudiants
+
+Nous avons aussi créer un visuel pour l'arboresence et un benchmark qui regroupe la charte graphique des visuels.
