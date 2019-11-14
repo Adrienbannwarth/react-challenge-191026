@@ -37,23 +37,26 @@ const App = ({ isLoggedIn }) => {
     <div className="App">
       <Router>
         <Row>
-          {isMobile ?
-            <MenuMobile/>
-          :
-            <Sidebar />
-          }
-          <main style={{ marginLeft: '30rem' }}>
-            <Grid>
-              <Switch>
-                <Route exact path="/" component={Home} />
-                <Route path="/login" component={Login} />
-                <Route path="/chart" component={Chart} />
-                <Route path="/group" component={Group} />
-                <Route path="/edit" component={EditPage} />
-                <Route path="/student-list" component={StudentList} />
-              </Switch>
-            </Grid>
-          </main>
+          <Col xs={12} md={2}>
+            {isMobile ?
+              <MenuMobile/> 
+              : <Sidebar />
+            }
+          </Col>
+          <Col xs={12} md={10}>
+            <main>
+              <Grid>
+                <Switch>
+                  <Route exact path="/" component={Home} />
+                  <Route path="/login" component={Login} />
+                  <Route path="/chart" component={Chart} />
+                  <Route path="/group" component={Group} />
+                  <Route path="/edit" component={EditPage} />
+                  <Route path="/student-list" component={StudentList} />
+                </Switch>
+              </Grid>
+            </main>
+          </Col>
         </Row>
       </Router>
     </div>

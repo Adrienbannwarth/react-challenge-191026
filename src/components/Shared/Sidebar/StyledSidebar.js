@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const StyledSidebar = styled.div`
   position: fixed;
   height: 100%;
-  width: 30rem;
+  width: 24rem;
   display: flex;
   flex-direction: column;
   background-color: white;
