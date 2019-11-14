@@ -25,11 +25,19 @@ export const Root = styled.div`
 
     .middleColHome {
         display: flex;
-        flex-direction: column;
         justify-content: space-between;
-
+        margin-bottom: 2rem;
         div {
-            height: 48%;
+            width: 48%;
+        }
+        
+        @media screen and (min-width: 768px) {
+            flex-direction: column;
+            margin-bottom: 0rem;
+            div {
+                height: 48%;
+                width: auto;
+            }
         }
     }
 `;
