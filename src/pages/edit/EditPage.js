@@ -32,26 +32,31 @@ export default class UserForm extends Component {
                 {
                     name: 'Programmation côté client',
                     label: 'client',
+                    grade: 2,
                     isLocked: true,
                 },
                 {
                     name: 'Programmation côté serveur',
                     label: 'server',
+                    grade: 1,
                     isLocked: false,
                 },
                 {
                     name: 'Design UI',
                     label: 'ui',
+                    grade: 3,
                     isLocked: false,
                 },
                 {
                     name: 'Design UX',
                     label: 'ux',
+                    grade: 0,
                     isLocked: false,
                 },
                 {
                     name: 'Gestion de projet',
                     label: 'cdp',
+                    grade: 4,
                     isLocked: false,
                 },
             ],
@@ -102,13 +107,11 @@ export default class UserForm extends Component {
                 return skill.isLocked = false;
             }
         })
-        const firstEl = SKILLS.splice(index, 1);
-        console.log(firstEl)
-        SKILLS.unshift(firstEl[0])
-        console.log(SKILLS)
+        const lockedSkill = SKILLS.splice(index, 1);
+        SKILLS.unshift(...lockedSkill)
         return this.setState({
             skills: SKILLS
-        }, console.log(this.state.skills))
+        })
     }
     render() {
         return <>
@@ -154,6 +157,7 @@ export default class UserForm extends Component {
 
                 <ScH2>Main skills</ScH2>
                 <GradeInput
+                    grade={this.state.skills[0].grade}
                     title={this.state.skills[0].name}
                     label={this.state.skills[0].label}
                     handleClick={this.handleClick}
@@ -167,6 +171,7 @@ export default class UserForm extends Component {
                     if (i !== 0) {
                         return <GradeInput
                             key={i}
+                            grade={skill.grade}
                             title={skill.name}
                             label={skill.label}
                             handleClick={this.handleClick}

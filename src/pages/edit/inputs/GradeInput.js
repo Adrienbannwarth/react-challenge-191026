@@ -4,7 +4,7 @@ import { ScGradeInput, ScGradebutton, ScLock } from '../styledEditPageComponents
 
 const GradeInput = props => {
     const [grades, setGrades] = useState([
-        'A', 'B', 'C', 'D', 'E'
+        'A', 'B', 'C', 'D', 'E', 'F'
     ])
 
     return <>
@@ -14,6 +14,7 @@ const GradeInput = props => {
                 {
                     grades.map(grade => {
                         return <ScGradebutton
+                            grade={props.grade}
                             name={props.label}
                             key={grade}
                             data-grade={grade}
