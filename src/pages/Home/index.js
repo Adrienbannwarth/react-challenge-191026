@@ -4,10 +4,11 @@ import { Root, Box, ChartsContainer } from './styles.js';
 import { Row, Col } from "react-flexbox-grid";
 import Svg from "../../components/Shared/Svg";
 import Chart from "../../components/Shared/Chart";
+import Students from "../../components/Shared/Students";
 
 const isStudent = false;
 
-const Home = () => {
+const Home = ({students}) => {
     const [ width, setWidth ] = useState(window.innerWidth)
 
     useEffect(() => {
@@ -74,9 +75,24 @@ const Home = () => {
                     </Box>
                 </Col>
             </Row>
+            <Row className="studentsContainer">
+                {students.map((student, index) => (
+                  <Col xs={12} key={index}>
+                    <Students Student={student} />
+                  </Col>
+                ))}
+            </Row>
         </Root>
     )
 }
+
+Home.defaultProps = {
+    students: [
+      { lastName: 'ZACHELIN',  firstName: 'Keny', education: 'Web', promo: 'P2020', group: 'G1-B', job: 'Dev-back' },
+      { lastName: 'RAVIRAJA',  firstName: 'Ramiya', education: 'Web', promo: 'P2021', group: 'G1-A', job: 'Design' },
+      { lastName: 'BANNWARTH',  firstName: 'Adrien', education: 'Web', promo: 'P2022', group: 'G1-B', job: 'Dev-Front' },
+    ],
+  };
 
 const mapStateToProps = state => {
     return {

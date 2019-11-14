@@ -40,6 +40,10 @@ export const Root = styled.div`
             }
         }
     }
+
+    .studentsContainer {
+        margin-top: 5.2rem;
+    }
 `;
 
 export const Box = styled.div`
