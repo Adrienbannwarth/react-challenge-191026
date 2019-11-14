@@ -10,6 +10,7 @@ router.post("/add", checkToken.verifyToken, checkToken.checkAuth, async (req, re
     res.status(200).send("En cours");
 });
 
+
 router.delete("/delete/:idGroup", checkToken.verifyToken, checkToken.checkAuth, async (req, res, next) => {
     res.status(200).send("En cours");
 });
