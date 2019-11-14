@@ -5,7 +5,7 @@ import { Formik } from 'formik';
 import { signIn } from '../../redux/actions/user';
 
 import LoginStyle from './LoginStyle'
-import logoHetic from '../../assets/imgs/logo-hetic.jpg'
+import logoHetic from '../../assets/imgs/logo-hetic.png'
 
 const Login = ({ signIn }) => {
   return (
