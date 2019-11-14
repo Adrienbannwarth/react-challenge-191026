@@ -31,7 +31,7 @@ const Sidebar = ({ profilePicture }) => (
           ))}
         </StyledTabContainer>
         <DisconnectBtn>
-            <p>Se deconnecter</p>
+            <p>Se déconnecter</p>
         </DisconnectBtn>
     </StyledSidebar>
 );
