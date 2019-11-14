@@ -8,7 +8,7 @@ import { Col, Row, Grid } from 'react-flexbox-grid';
 
 // Pages
 import Login from '../Login/Login';
-import Button from '../Shared/Button';
+import Home from "../../pages/Home";
 import Chart from '../Shared/Chart';
 import Group from '../../pages/Group';
 import StudentList from '../../pages/StudentList';
@@ -48,7 +48,7 @@ const App = ({ isLoggedIn }) => {
             <main>
               <Grid>
                 <Switch>
-                  <Route exact path="/" component={Button} />
+                  <Route exact path="/" component={Home} />
                   <Route path="/login" component={Login} />
                   <Route path="/chart" component={Chart} />
                   <Route path="/group" component={Group} />
