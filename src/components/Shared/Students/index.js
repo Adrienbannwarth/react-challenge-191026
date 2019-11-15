@@ -40,7 +40,7 @@ const Students = ({ Student }) => {
         <p>{Student.promo}</p>
         &nbsp;
         &nbsp;
-        <TextLight>{Student.grouoName}</TextLight>
+        <TextLight>{Student.group}</TextLight>
         </TextContainer>
       )}
       <TextContainer>
