@@ -18,7 +18,7 @@ const MenuMobile = ({ }) => {
                 return setIsOpen(!isOpen)
               }}
               id="menu"
-              style={{fill: isOpen ? 'red' : 'blue'}}
+              style={{fill: isOpen ? 'red' : 'black'}}
             />
 
    </Header>
