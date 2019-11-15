@@ -34,5 +34,12 @@ module.exports = {
             console.log(e);
             next(createError(500));
         }
+    },
+    getStudent: async (req, res, next) => {
+        try {
+            
+        } catch (e) {
+            
+        }
     }
 };

@@ -77,5 +77,36 @@ module.exports = {
         } catch (e) {
             throw e;
         }
+    },
+    getStudent: async (idStudent) => {
+        let sql = `
+            SELECT
+                st.firstName,
+                st.lastName,
+                st.mail,
+                s.competenceName,
+                idMark,
+                idSkill,
+                m.mark,
+                idCompetence
+            FROM
+                assocSkillMarkUser asm
+            INNER JOIN students st on asm.idStudent = st.id
+            INNER JOIN skill s on asm.idSkill = s.id
+            INNER JOIN mark m on asm.idMark = m.id
+            INNER JOIN groupPromo gP on st.idGroup = gP.id
+            INNER JOIN promo p on gP.idPromo = p.id
+            INNER JOIN faculty f on gP.idFaculty = f.id
+            WHERE
+                idStudent = ?;
+        `;
+        try {
+            const connection = await mysql.connection();
+            const student = await connection.query(sql, [idStudent]);
+            connection.end();
+            return student;
+        } catch (e) {
+            throw e;
+        }
     }
 };

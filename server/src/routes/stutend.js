@@ -9,6 +9,13 @@ router.get("/", checkToken.verifyToken, checkToken.checkAuth ,async (req, res, n
     // await sutdentcontroller.getMycAccount(req, res, next);
 });
 
+router.get("/get/:idStudent",
+    checkToken.verifyToken,
+    checkToken.checkAuth,
+    async (req, res, next) => {
+
+    });
+
 router.put("/" /*middle ware to check Token*/, async (req, res, next) => {
 
 });

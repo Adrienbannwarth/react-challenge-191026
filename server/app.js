@@ -9,9 +9,9 @@ const helmet = require("helmet");
 const studentRoute = require("./src/routes/stutend");
 const loginRoute = require("./src/routes/login");
 const accountRoute = require("./src/routes/account");
+const promoRoute = require("./src/routes/promo");
+const facultyRoute = require("./src/routes/faculty");
 const app = express();
-
-
 
 app.use(helmet());
 app.use(logger('dev'));
@@ -30,6 +30,8 @@ app.use((req, res, next) => {
 app.use("/student", studentRoute);
 app.use("/login", loginRoute);
 app.use("/account", accountRoute);
+app.use("/promo", promoRoute);
+app.use("/faculty", facultyRoute);
 
 app.use((req, res, next) => {
     console.log("FDFDFDFDFDDFD");
