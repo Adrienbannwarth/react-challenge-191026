@@ -13,7 +13,7 @@ const Links = [
   { text: 'Groupe', icon: 'multiple_users', url: '/group'}
 ];
 
-const Sidebar = ({ profilePicture, open }) => {
+const Sidebar = ({ profilePicture, isOpen }) => {
   const [ width, setWidth ] = useState(window.innerWidth)
 
   useEffect(() => {
@@ -28,10 +28,8 @@ const Sidebar = ({ profilePicture, open }) => {
 
   const isMobile = width <= 768;
 
-  let isOpen = false
-
   return (
-    <StyledSidebar open={open} isSidebarMobile={isMobile ? true : false}>
+    <StyledSidebar isOpen={isOpen} isSidebarMobile={isMobile ? true : false}>
       {isMobile ?
             null
           :
@@ -63,10 +61,6 @@ const mapStateToProps = (state) => {
     profilePicture: state.profilePicture,
   };
 };
-
-Sidebar.propTypes = {
-  open: bool.isRequired,
-}
 
 Sidebar.defaultProps = {
   profilePicture: null,

@@ -6,20 +6,23 @@ import heticLogo from '../../../assets/imgs/logo-hetic.png'
 import Svg from '../Svg'
 
 const MenuMobile = ({ }) => {
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <Header>
         <StyledLogoContainer>
             <img src={heticLogo} alt=""/>
         </StyledLogoContainer>
-            <Svg open={open} onClick={() => setOpen(!open)} id="menu"/>
-    </Header>
+            <Svg
+              isOpen={isOpen}
+              onClick={() => {
+                return setIsOpen(!isOpen)
+              }}
+              id="menu"
+              style={{fill: isOpen ? 'red' : 'blue'}}
+            />
+
+   </Header>
   );
 }
-
-MenuMobile.propTypes = {
-  open: bool.isRequired,
-  setOpen: func.isRequired,
-};
 
 export default MenuMobile;

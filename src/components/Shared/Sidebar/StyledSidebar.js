@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const StyledSidebar = styled.div`
   left: ${props => props.isSidebarMobile ? '-100%' : '0'};
-  left: ${({ open }) => open ? '0' : '-100%'} !important;
+  left: ${props => props.isOpen ? '0' : '-100%'} !important;
   position: fixed;
   z-index: 99;
   height: 100%;
