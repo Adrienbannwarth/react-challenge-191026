@@ -29,6 +29,9 @@ module.exports = {
             console.log(req.authData.idPromo, req.authData.facultyId);
             const students = await studentModel.getStudentOfFacultyAndPromo(req.authData.infoAccount.idPromo, req.authData.infoAccount.facultyId);
             console.log("sdfDSfdsfds");
+            students.forEach((student) => {
+                student.promo = "P" + student.promo
+            });
             return res.status(200).send(students);
         } catch (e) {
             console.log(e);
