@@ -13,14 +13,14 @@ const Links = [
 ];
 
 
-const Sidebar = ({ profilePicture }) => (
+const Sidebar = ({ profilePicture, firstName, lastName }) => (
     <StyledSidebar>
         <StyledLogoContainer>
             <img src={heticLogo} alt="logo hetic"/>
         </StyledLogoContainer>
         <ProfileCard>
             <div />
-            <p>PRIOU Eric</p>
+            <p>{`${firstName} ${lastName}`}</p>
         </ProfileCard>
         <StyledTabContainer>
           {Links.map((link, i) => (
@@ -39,6 +39,8 @@ const Sidebar = ({ profilePicture }) => (
 const mapStateToProps = (state) => {
   return {
     profilePicture: state.profilePicture,
+    firstName: state.user.user.firstName,
+    lastName: state.user.user.lastName,
   };
 };
 

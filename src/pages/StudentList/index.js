@@ -47,6 +47,7 @@ const StudentList = ({ students, getStudents, isLoading }) => {
     }, [search])
 
     const dropdownPromoOptions = [
+      { value: 'P2019', name: 'P2019' },
       { value: 'P2020', name: 'P2020' },
       { value: 'P2021', name: 'P2021' },
       { value: 'P2022', name: 'P2022' },
