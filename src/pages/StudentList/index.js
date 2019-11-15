@@ -17,27 +17,28 @@ const StudentList = ({ students, getStudents }) => {
     const [searchResults, setSeachResults] = useState(null);
 
     useEffect(() => {
-      getStudents().then(() => { setFilteredStudents(students) });
+      getStudents();
     }, []);
 
     useEffect(() => {
+      setFilteredStudents(students);
       if (!!promo) {
         setFilteredStudents(students.filter(student => student.promo === promo));
       } else if (!skill && promo === "") {
         setFilteredStudents(students)
       }
       if (!!skill) {
-        setFilteredStudents(students.filter(student => student.job === skill));
+        setFilteredStudents(students.filter(student => student.mainSkill === skill));
       } else if (!promo && skill === "") {
         setFilteredStudents(students)
       }
-      if (!!promo && !!skill) { setFilteredStudents(students.filter((student) => student.job === skill && student.promo === promo)); }
+      if (!!promo && !!skill) { setFilteredStudents(students.filter((student) => student.mainSkill === skill && student.promo === promo)); }
       setSeach("");
       setSeachResults(null);
-    }, [promo, skill]);
+    }, [promo, skill, students]);
 
     useEffect(() => {
-      setSeachResults(search ? filteredStudents.filter(student =>
+      setSeachResults(search && filteredStudents ? filteredStudents.filter(student =>
         student.firstName.toLowerCase().includes(search.toLowerCase())
         || student.lastName.toLowerCase().includes(search.toLowerCase())
       ) : filteredStudents)
@@ -56,7 +57,7 @@ const StudentList = ({ students, getStudents }) => {
       { value: 'Dev-back', name: 'Dev - Back' },
       { value: 'Dev-Front', name: 'Dev - Front' },
     ];
-
+    console.log(filteredStudents);
     return (
         <Root>
             <h2>Listes des étudiants</h2>
