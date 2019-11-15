@@ -32,11 +32,13 @@ module.exports = {
                 s.competenceName as mainSkill,
                 firstName,
                 lastName,
-                gP.name
+                gP.name as grouoName,
+                f.name as facultyName
             FROM
                 students
                     INNER JOIN groupPromo gP on students.idGroup = gP.id
                     INNER JOIN skill s on students.idCompetence = s.id
+                    INNER JOIN faculty f on gP.idFaculty = f.id
             WHERE
                 gP.idFaculty = ?
             AND
