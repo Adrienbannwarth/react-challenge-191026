@@ -8,6 +8,7 @@ import { Container, TextContainer, TextLight, StyledJob } from './StyledStudent'
 //   { lastName: 'ZACHELIN',  firstName: 'Keny', education: 'Web', promo: 'P2020', group: 'G1-B', job: 'Dev-back' },
 //   { lastName: 'RAVIRAJA',  firstName: 'Ramiya', education: 'Web', promo: 'P2020', group: 'G1-A', job: 'Design' },
 //   { lastName: 'BANNWARTH',  firstName: 'Adrien', education: 'Web', promo: 'P2020', group: 'G1-B', job: 'Dev-Front' },
+//   { lastName: 'BANNWARTH',  firstName: 'Adrien', facultyName: 'Web', promo: 'P2022', grouoName: 'G1-B', mainSkill: 'Dev-Front', id: 2003 },
 // ]
 
 const Students = ({ Student }) => {
@@ -34,17 +35,17 @@ const Students = ({ Student }) => {
       </TextContainer>
       {!isMobile && (
         <TextContainer>
-        <p>{Student.education}</p>
+        <p>{Student.facultyName}</p>
         &nbsp;
         <p>{Student.promo}</p>
         &nbsp;
         &nbsp;
-        <TextLight>{Student.group}</TextLight>
+        <TextLight>{Student.grouoName}</TextLight>
         </TextContainer>
       )}
       <TextContainer>
-        <StyledJob job={Student.job}>
-          {Student.job}
+        <StyledJob mainSkill={Student.mainSkill}>
+          {Student.mainSkill}
         </StyledJob>
       </TextContainer>
     </Container>

@@ -16,7 +16,7 @@ export const options = {
     request: [
       (store, config) => {
         if (store.getState().user.credentials['access-token']) {
-          config.headers['Authorization'] = `Bearer ${store.getState().user.credentials['access-token']}`;
+          config.headers['Authorization'] = `Bearer ${JSON.parse(store.getState().user.credentials['access-token'])}`;
         } else if (window.localStorage.getItem('user')) {
           config.headers['Authorization'] = `Bearer ${JSON.parse(window.localStorage.getItem('user'))}`;
         }
