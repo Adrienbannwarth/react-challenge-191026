@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import { Root, SelectWrapper, NoGroup } from './styles.js';
-import { projectGroups, studentProjects } from "../../helpers/projectGroups";
-import Groups from "../../components/Shared/Groups";
-import { Row, Col } from "react-flexbox-grid";
+import { projectGroups, studentProjects } from '../../helpers/projectGroups';
+import Groups from '../../components/Shared/Groups';
+import { Row, Col } from 'react-flexbox-grid';
 
 const isStudent = false;
 
