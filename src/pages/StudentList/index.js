@@ -7,6 +7,8 @@ import { Row, Col } from "react-flexbox-grid";
 import Input from '../../components/Shared/Input/Input';
 import Students from '../../components/Shared/Students';
 
+import Loader from '../../components/Shared/Loader';
+
 import { getStudents } from '../../redux/actions/students';
 
 const StudentList = ({ students, getStudents }) => {
@@ -60,6 +62,7 @@ const StudentList = ({ students, getStudents }) => {
     console.log(filteredStudents);
     return (
         <Root>
+            <Loader />
             <h2>Listes des étudiants</h2>
             <Col xs={6} md={8}>
               <Row middle="md" between="md" reverse="md">
