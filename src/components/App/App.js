@@ -32,18 +32,22 @@ const App = ({ isLoggedIn }) => {
   });
 
   const isMobile = width <= 768;
-  // if (!isLoggedIn) { history.push('/login') }
+  if (!isLoggedIn) { history.push('/login') }
   return (
-    <div className="App">
+    <div className="App" style={{ background: !isLoggedIn ? '#333' : null }}>
       <Router>
         <Row>
-          <Col xs={12} md={2}>
-            {isMobile ?
-              <MenuMobile/>
-              : <Sidebar />
-            }
-          </Col>
-          <Col xs={12} md={10}>
+          {!isLoggedIn ?
+            null
+            :
+            <Col xs={12} md={2}>
+              {isMobile ?
+                <MenuMobile/>
+                : <Sidebar />
+              }
+            </Col>
+          }
+          <Col xs={12} md={!isLoggedIn ? 12 : 10}>
             <main>
               <Grid>
                 <Switch>

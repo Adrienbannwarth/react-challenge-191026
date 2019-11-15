@@ -6,12 +6,12 @@ import { Row, Col } from "react-flexbox-grid";
 
 import Input from '../../components/Shared/Input/Input';
 import Students from '../../components/Shared/Students';
-
 import Loader from '../../components/Shared/Loader';
+
 
 import { getStudents } from '../../redux/actions/students';
 
-const StudentList = ({ students, getStudents }) => {
+const StudentList = ({ students, getStudents, isLoading }) => {
     const [promo, setPromo] = useState();
     const [skill, setSkill] = useState();
     const [filteredStudents, setFilteredStudents] = useState(null);
@@ -59,7 +59,7 @@ const StudentList = ({ students, getStudents }) => {
       { value: 'Dev-back', name: 'Dev - Back' },
       { value: 'Dev-Front', name: 'Dev - Front' },
     ];
-    console.log(filteredStudents);
+
     return (
         <Root>
             <h2>Listes des étudiants</h2>
@@ -90,21 +90,25 @@ const StudentList = ({ students, getStudents }) => {
                 </Col>
               </Row>
             </Col>
-            <Row>
-              {search && searchResults ?
-                searchResults && searchResults.map((student, index) => (
-                  <Col xs={12} key={index}>
-                    <Students Student={student} />
-                  </Col>
-                ))
-                :
-                filteredStudents && filteredStudents.map((student, index) => (
-                  <Col xs={12} key={index}>
-                    <Students Student={student} />
-                  </Col>
-                ))
-              }
-            </Row>
+            {isLoading ?
+              <Loader />
+              :
+              <Row>
+                {search && searchResults ?
+                  searchResults && searchResults.map((student, index) => (
+                    <Col xs={12} key={index}>
+                      <Students Student={student} />
+                    </Col>
+                  ))
+                  :
+                  filteredStudents && filteredStudents.map((student, index) => (
+                    <Col xs={12} key={index}>
+                      <Students Student={student} />
+                    </Col>
+                  ))
+                }
+              </Row>
+            }
       </Root>
     )
 }
@@ -112,6 +116,7 @@ const StudentList = ({ students, getStudents }) => {
 const mapStateToProps = state => {
     return {
       students: state.student.students,
+      isLoading: state.student.isLoading,
     }
   };
 
