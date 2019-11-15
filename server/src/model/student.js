@@ -32,7 +32,7 @@ module.exports = {
                 s.competenceName as mainSkill,
                 firstName,
                 lastName,
-                gP.name as grouoName,
+                gP.name as 'group',
                 f.name as facultyName,
                 p.year as promo
             FROM
