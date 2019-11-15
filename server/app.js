@@ -13,7 +13,7 @@ const promoRoute = require("./src/routes/promo");
 const facultyRoute = require("./src/routes/faculty");
 const app = express();
 
-app.use(helmet());
+//app.use(helmet());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(bodyParser.json());
