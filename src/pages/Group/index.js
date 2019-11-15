@@ -30,8 +30,8 @@ const Group = () => {
         <Root className="noGroupContainer">
             <h2>Liste des groupes</h2>
             <SelectWrapper>
-                <select onChange={e => setOption(parseInt(e.target.value))}>
-                    <option value="" disabled selected>Liste des projets</option>
+                <select onChange={e => setOption(parseInt(e.target.value))} defaultValue={projectGroups && projectGroups[0] ? projectGroups[0].projectID : ""}>
+                    <option value="" disabled>Liste des projets</option>
                     {projectGroups && projectGroups.map(project => (
                         <option key={project.projectID} value={project.projectID}>{project.projectName}</option>
                     ))}
