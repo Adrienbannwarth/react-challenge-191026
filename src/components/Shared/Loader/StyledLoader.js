@@ -7,6 +7,9 @@ export const LoaderContainer = styled.div`
   height: 100px;
   border-radius: 100%;
   position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 35px;
 `;
 
 export const LoaderFirstSpan = styled.span`
