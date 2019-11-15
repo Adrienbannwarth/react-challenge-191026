@@ -39,10 +39,10 @@ const App = ({ isLoggedIn }) => {
         <Row>
           {isMobile ?
             <MenuMobile/>
-          :
-            <Sidebar />
+          : null
           }
-          <main style={{ marginLeft: '30rem' }}>
+          <Sidebar />
+          <main style={{ marginLeft: isMobile ? '0' : '30rem' }}>
             <Grid>
               <Switch>
                 <Route exact path="/" component={Home} />

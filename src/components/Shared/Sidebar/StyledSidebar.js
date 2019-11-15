@@ -1,7 +1,10 @@
 import styled from 'styled-components'
 
 export const StyledSidebar = styled.div`
+  left: ${props => props.isSidebarMobile ? '-100%' : '0'};
+  left: ${({ open }) => open ? '0' : '-100%'} !important;
   position: fixed;
+  z-index: 99;
   height: 100%;
   width: 30rem;
   display: flex;

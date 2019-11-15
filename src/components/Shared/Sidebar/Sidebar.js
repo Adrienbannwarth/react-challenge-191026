@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { bool } from 'prop-types';
 import { StyledSidebar, StyledLogoContainer, StyledTabContainer, ProfileCard, DisconnectBtn } from './StyledSidebar';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -12,12 +13,32 @@ const Links = [
   { text: 'Groupe', icon: 'multiple_users', url: '/group'}
 ];
 
+const Sidebar = ({ profilePicture, open }) => {
+  const [ width, setWidth ] = useState(window.innerWidth)
 
-const Sidebar = ({ profilePicture }) => (
-    <StyledSidebar>
-        <StyledLogoContainer>
-            <img src={heticLogo} alt="logo hetic"/>
-        </StyledLogoContainer>
+  useEffect(() => {
+    const handleWindowSizeChange = () => {
+      setWidth(window.innerWidth);
+    }
+    window.addEventListener('resize', handleWindowSizeChange);
+    return () => {
+      window.removeEventListener('resize', handleWindowSizeChange);
+    }
+  });
+
+  const isMobile = width <= 768;
+
+  let isOpen = false
+
+  return (
+    <StyledSidebar open={open} isSidebarMobile={isMobile ? true : false}>
+      {isMobile ?
+            null
+          :
+            <StyledLogoContainer>
+              <img src={heticLogo} alt="logo hetic"/>
+            </StyledLogoContainer>
+          }
         <ProfileCard>
             <div />
             <p>PRIOU Eric</p>
@@ -34,13 +55,18 @@ const Sidebar = ({ profilePicture }) => (
             <p>Se deconnecter</p>
         </DisconnectBtn>
     </StyledSidebar>
-);
+  )
+};
 
 const mapStateToProps = (state) => {
   return {
     profilePicture: state.profilePicture,
   };
 };
+
+Sidebar.propTypes = {
+  open: bool.isRequired,
+}
 
 Sidebar.defaultProps = {
   profilePicture: null,
