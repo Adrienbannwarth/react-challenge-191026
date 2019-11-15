@@ -40,8 +40,8 @@ margin-left: 2rem;
     height: 1.5rem;
     width: 1.5rem;
     border-radius: 50%;
-    ${props => props.job === 'Dev-back' ? 'background: #345995;' : null}
-    ${props => props.job === 'Design' ? 'background: #03CEA4;' : null}
-    ${props => props.job === 'Dev-Front' ? 'background: #EAC435;' : null}
+    ${props => props.mainSkill === 'Dev-back' ? 'background: #345995;' : null}
+    ${props => props.mainSkill === 'Design' ? 'background: #03CEA4;' : null}
+    ${props => props.mainSkill === 'Dev-Front' ? 'background: #EAC435;' : null}
   }
 `

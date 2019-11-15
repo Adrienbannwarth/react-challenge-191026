@@ -7,30 +7,35 @@ import { Row, Col } from "react-flexbox-grid";
 import Input from '../../components/Shared/Input/Input';
 import Students from '../../components/Shared/Students';
 
-const StudentList = ({ students }) => {
+import { getStudents } from '../../redux/actions/students';
+
+const StudentList = ({ students, getStudents }) => {
     const [promo, setPromo] = useState();
     const [skill, setSkill] = useState();
-    const [filteredStudents, setFilteredStudents] = useState([...students]);
+    const [filteredStudents, setFilteredStudents] = useState(null);
     const [search, setSeach] = useState();
     const [searchResults, setSeachResults] = useState(null);
 
+    useEffect(() => {
+      getStudents().then(() => { setFilteredStudents(students) });
+    });
 
     useEffect(() => {
+      getStudents()
       if (!!promo) {
         setFilteredStudents(students.filter(student => student.promo === promo));
       } else if (!skill && promo === "") {
-        setFilteredStudents([...students])
+        setFilteredStudents(students)
       }
       if (!!skill) {
         setFilteredStudents(students.filter(student => student.job === skill));
       } else if (!promo && skill === "") {
-        setFilteredStudents([...students])
+        setFilteredStudents(students)
       }
       if (!!promo && !!skill) { setFilteredStudents(students.filter((student) => student.job === skill && student.promo === promo)); }
       setSeach("");
       setSeachResults(null);
     }, [promo, skill]);
-
 
     useEffect(() => {
       setSeachResults(search ? filteredStudents.filter(student =>
@@ -56,9 +61,22 @@ const StudentList = ({ students }) => {
     return (
         <Root>
             <h2>Listes des étudiants</h2>
-            <Col xs={6} md={6}>
-              <Row middle="md" between="md">
-                <Col xs={2} md={4}>
+            <Col xs={6} md={8}>
+              <Row middle="md" between="md" reverse="md">
+                <Col xs={12} md={4}>
+                  <Input name="search" type="search" value={search} placeholder="Rechecher" onChange={e => setSeach(e.target.value)} />
+                </Col>
+                <Col xs={6} md={4}>
+                  <SelectWrapper>
+                    <select defaultValue="" onChange={e => setSkill(e.target.value)}>
+                      <option value="">Par compétences</option>
+                      {dropdownSkillsOptions.map((skill, index) => (
+                        <option key={index} value={skill.value}>{skill.name}</option>
+                      ))}
+                    </select>
+                  </SelectWrapper>
+                </Col>
+                <Col xs={6} md={4}>
                   <SelectWrapper>
                       <select defaultValue="" onChange={e => setPromo(e.target.value)}>
                         <option value="">Par promotion</option>
@@ -68,30 +86,17 @@ const StudentList = ({ students }) => {
                       </select>
                   </SelectWrapper>
                 </Col>
-                <Col xs={2} md={4}>
-                  <SelectWrapper>
-                    <select defaultValue="" onChange={e => setSkill(e.target.value)}>
-                      <option value="">Par compétences</option>
-                        {dropdownSkillsOptions.map((skill, index) => (
-                          <option key={index} value={skill.value}>{skill.name}</option>
-                        ))}
-                    </select>
-                  </SelectWrapper>
-                </Col>
-                <Col xs={2} md={4}>
-                  <Input name="search" type="search" value={search} placeholder="Rechecher" onChange={e => setSeach(e.target.value)} />
-                </Col>
               </Row>
             </Col>
             <Row>
               {search && searchResults ?
-                searchResults.map((student, index) => (
+                searchResults && searchResults.map((student, index) => (
                   <Col xs={12} key={index}>
                     <Students Student={student} />
                   </Col>
                 ))
                 :
-                filteredStudents.map((student, index) => (
+                filteredStudents && filteredStudents.map((student, index) => (
                   <Col xs={12} key={index}>
                     <Students Student={student} />
                   </Col>
@@ -104,22 +109,22 @@ const StudentList = ({ students }) => {
 
 const mapStateToProps = state => {
     return {
-      students: state.students,
+      students: state.student.students,
     }
   };
 
 
   const mapDispatchToProps = dispatch => {
     return {
-      // getStudents: (promo, skill) => dispatch(getStudents(promo, skill)),
+      getStudents: () => dispatch(getStudents()),
     }
   };
 
 StudentList.defaultProps = {
   students: [
-    { lastName: 'ZACHELIN',  firstName: 'Keny', education: 'Web', promo: 'P2020', group: 'G1-B', job: 'Dev-back' },
-    { lastName: 'RAVIRAJA',  firstName: 'Ramiya', education: 'Web', promo: 'P2021', group: 'G1-A', job: 'Design' },
-    { lastName: 'BANNWARTH',  firstName: 'Adrien', education: 'Web', promo: 'P2022', group: 'G1-B', job: 'Dev-Front' },
+    { lastName: 'ZACHELIN',  firstName: 'Keny', facultyName: 'Web', promo: 'P2020', grouoName: 'G1-B', mainSkill: 'Dev-back', id: 2001 },
+    { lastName: 'RAVIRAJA',  firstName: 'Ramiya', facultyName: 'Web', promo: 'P2021', grouoName: 'G1-A', mainSkill: 'Design', id: 2002 },
+    { lastName: 'BANNWARTH',  firstName: 'Adrien', facultyName: 'Web', promo: 'P2022', grouoName: 'G1-B', mainSkill: 'Dev-Front', id: 2003 },
   ],
 };
 

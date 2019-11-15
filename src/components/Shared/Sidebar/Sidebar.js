@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyledSidebar, StyledLogoContainer, StyledTabContainer, ProfileCard, DisconnectBtn } from './StyledSidebar';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import heticLogo from '../../../assets/imgs/logo-hetic.png'
 import Svg from '../Svg'
