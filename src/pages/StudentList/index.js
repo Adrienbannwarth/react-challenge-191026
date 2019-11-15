@@ -18,10 +18,9 @@ const StudentList = ({ students, getStudents }) => {
 
     useEffect(() => {
       getStudents().then(() => { setFilteredStudents(students) });
-    });
+    }, []);
 
     useEffect(() => {
-      getStudents()
       if (!!promo) {
         setFilteredStudents(students.filter(student => student.promo === promo));
       } else if (!skill && promo === "") {
