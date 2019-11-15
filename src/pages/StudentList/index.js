@@ -62,7 +62,6 @@ const StudentList = ({ students, getStudents }) => {
     console.log(filteredStudents);
     return (
         <Root>
-            <Loader />
             <h2>Listes des étudiants</h2>
             <Col xs={6} md={8}>
               <Row middle="md" between="md" reverse="md">
